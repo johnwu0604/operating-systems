@@ -239,11 +239,7 @@ int waitforjob(char *jobnc)
         }
         trv = trv->next;
     }
-
-    //if correspoding job is found
-    //use its pid to make the parent process wait.
-    //waitpid with proper argument needed here
-
+    waitpid(trv->pid,NULL,0);
     return 0;
 }
 
@@ -332,18 +328,6 @@ int main(void)
     //helpful in output redirection
     int fd1, fd2;
 
-
-
-    if (fork()==0) {
-        printf("Hello from Child!\n");
-        sleep(10000);
-    }
-    else {
-        printf("Hello from Parent!\n");
-    }
-
-
-
     //your terminal executes endlessly unless
     //exit command is received
     while (1)
@@ -379,18 +363,22 @@ int main(void)
             //bring a background process to foreground
             waitforjob(args[1]);
         }
-//        else if (!strcmp("cd", args[0]))
-//        {
-//            int result = 0;
-//            // if no destination directory given
-//            // change to home directory
-//
-//            //if given directory does not exist
-//            //print directory does not exit
-//
-//            //if everthing is fine
-//            //change to destination directory
-//        }
+        else if (!strcmp("cd", args[0]))
+        {
+            char *argv[] = { "cd", 0 };
+            // if no destination directory given
+            // change to home directory
+//            if (args[1] == NULL) {
+//                printf("ERROR! Please enter a valid directory\n");
+//            }
+
+            //if given directory does not exist
+            //print directory does not exit
+
+            //if everthing is fine
+            //change to destination directory
+            execvp(argv[0], argv);
+        }
 //        else if (!strcmp("pwd", args[0]))
 //        {
 //            //use getcwd and print the current working directory
