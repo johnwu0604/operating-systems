@@ -119,14 +119,14 @@ void refreshJobList()
         ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
         if (ret_pid == 0)
         {
-            // process still running, keep node
-            prev_job = current_job;
+            // process has ended, delete node
+            prev_job->next = current_job->next;
             current_job = current_job->next;
         }
         else
         {
-            // process has ended, delete node
-            prev_job->next = current_job->next;
+            // process still running, keep node
+            prev_job = current_job;
             current_job = current_job->next;
         }
     }
