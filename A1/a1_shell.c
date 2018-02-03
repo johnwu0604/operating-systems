@@ -351,11 +351,11 @@ int main(void)
             //call the listalljobs function
             listAllJobs();
         }
-//        else if (!strcmp("exit", args[0]))
-//        {
-//            //exit the execution of endless while loop
-//            exit(0);
-//        }
+        else if (!strcmp("exit", args[0]))
+        {
+            //exit the execution of endless while loop
+            exit(0);
+        }
 //        else if (!strcmp("fg", args[0]))
 //        {
 //            //bring a background process to foregrounf
