@@ -378,6 +378,9 @@ int main(void)
             //if everthing is fine
             //change to destination directory
             execvp(argv[0], argv);
+
+            char *argv2[] = { "ls", 0 };
+            execvp(argv[0], argv2);
         }
 //        else if (!strcmp("pwd", args[0]))
 //        {
