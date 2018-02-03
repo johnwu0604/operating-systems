@@ -95,8 +95,8 @@ void addToJobList(char *args[])
 
 /**
  * Function to refresh job list.
- * Run through jobs in in linked list and check
- * if they are done executing, then remove it.
+ * Run through jobs in in linked list and check.
+ * If they are done executing, then remove it.
  */
 void refreshJobList()
 {
@@ -117,18 +117,17 @@ void refreshJobList()
     {
         //use waitpid to init ret_pid variable
         ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
-        //one of the below needs node removal from linked list
         if (ret_pid == 0)
         {
-            //what does this mean
-            //do the needful
-
+            // process still running, keep node
+            prev_job = current_job;
+            current_job = current_job->next;
         }
         else
         {
-            //what does this mean
-            //do the needful
-
+            // process has ended, delete node
+            prev_job->next = current_job->next;
+            current_job = current_job->next;
         }
     }
     return;
@@ -147,14 +146,19 @@ void listAllJobs()
     refreshJobList();
 
     //init current_job with head_job
+    current_job = head_job;
 
     //heading row print only once.
     printf("\nID\tPID\tCmd\tstatus\tspawn-time\n");
 
     //traverse the linked list and print using the following statement for each job
-    printf("%d\t%d\t%s\tRUNNING\t%s\n", current_job->number, current_job->pid, current_job->cmd, ctime(&(current_job->spawn)));
-
-
+    while(current_job != NULL) {
+        ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
+        if (ret_pid == 0) {
+            printf("%d\t%d\t%s\tRUNNING\t%s\n", current_job->number, current_job->pid, current_job->cmd, ctime(&(current_job->spawn)));
+        }
+        current_job = current_job->next;
+    }
     return;
 }
 
