@@ -232,7 +232,12 @@ int waitforjob(char *jobnc)
     int jobn = (*jobnc) - '0';
     trv = head_job;
     //traverse through linked list and find the corresponding job
-    //hint : traversal done in other functions too
+    while (trv != NULL) {
+        if (trv->number = jobn) {
+            break;
+        }
+        trv = trv->next;
+    }
 
     //if correspoding job is found
     //use its pid to make the parent process wait.
@@ -326,6 +331,18 @@ int main(void)
     //helpful in output redirection
     int fd1, fd2;
 
+
+
+    if (fork()==0) {
+        printf("Hello from Child!\n");
+        sleep(10000);
+    }
+    else {
+        printf("Hello from Parent!\n");
+    }
+
+
+
     //your terminal executes endlessly unless
     //exit command is received
     while (1)
@@ -356,11 +373,11 @@ int main(void)
             //exit the execution of endless while loop
             exit(0);
         }
-//        else if (!strcmp("fg", args[0]))
-//        {
-//            //bring a background process to foregrounf
-//            waitforjob(args[1]);
-//        }
+        else if (!strcmp("fg", args[0]))
+        {
+            //bring a background process to foreground
+            waitforjob(args[1]);
+        }
 //        else if (!strcmp("cd", args[0]))
 //        {
 //            int result = 0;
