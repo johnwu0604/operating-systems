@@ -124,14 +124,14 @@ void refreshJobList()
         ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
         if (ret_pid == 0)
         {
-            // process has ended, delete node
-            prev_job->next = current_job->next;
+            // process still running, keep node
+            prev_job = current_job;
             current_job = current_job->next;
         }
         else
         {
-            // process still running, keep node
-            prev_job = current_job;
+            // process has ended, delete node
+            prev_job->next = current_job->next;
             current_job = current_job->next;
         }
     }
@@ -413,19 +413,6 @@ int main(void)
             }
 
         }
-//        else if (!strcmp("ls", args[0]))
-//        {
-//            int status;
-//            char *argv[2];
-//
-//            argv[0] = "/bin/ls";        // first arg is the full path to the executable
-//            argv[1] = NULL;             // list of args must be NULL terminated
-//
-//            if ( fork() == 0 )
-//                execv( argv[0], argv ); // child: call execv with the path and the args
-//            else
-//                wait( &status );        // parent: wait for the child (not really necessary)
-//        }
         else if (!strcmp("pwd", args[0]))
         {
             //use getcwd and print the current working directory
@@ -473,7 +460,7 @@ int main(void)
                     //BACKGROUND
                     process_id = pid;
                     addToJobList(args);
-                    waitpid(pid, &status, 0);
+                    //waitpid(pid, &status, 0);
                 }
             }
             else
