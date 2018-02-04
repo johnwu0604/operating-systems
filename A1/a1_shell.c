@@ -368,9 +368,9 @@ int main(void)
             char *argv[] = { "cd", 0 };
             // if no destination directory given
             // change to home directory
-//            if (args[1] == NULL) {
-//                printf("ERROR! Please enter a valid directory\n");
-//            }
+            if (args[1] == NULL) {
+                argv[1] = "/home";
+            }
 
             //if given directory does not exist
             //print directory does not exit
