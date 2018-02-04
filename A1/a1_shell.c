@@ -376,6 +376,7 @@ int main(void)
 
             //if everthing is fine
             //change to destination directory
+            printf(args[1]);
             chdir(args[1]);
         }
         else if (!strcmp("ls", args[0]))
