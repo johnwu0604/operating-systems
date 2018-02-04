@@ -58,40 +58,43 @@ void addToJobList(char *args[])
     if (head_job == NULL)
     {
         //init the job number with 1
-
+        job->number = 1;
         //set its pid from the global variable process_id
-
+        job->pid = process_id;
         //cmd can be set to arg[0]
-
+        job->cmd = arg[0];
         //set the job->next to point to NULL.
-
+        job->next = NULL;
         //set the job->spawn using time function
         job->spawn = (unsigned int)time(NULL);
         //set head_job to be the job
-
+        head_job = job;
         //set current_job to be head_job
-
+        current_job = head_job;
     }
 
         //Otherwise create a new job node and link the current node to it
     else
     {
         //point current_job to head_job
-
+        current_job = head_job;
         //traverse the linked list to reach the last job
-
-
-
+        while(current_job->next != NULL) {
+            current_job = current_job->next;
+        }
 
         //init all values of the job like above num,pid,cmd.spawn
-
+        struct node *job = malloc(sizeof(struct node));
+        job->number = current_job->number + 1;
+        job->pid = process_id;
+        job->cmd = arg[0];
+        job->next = NULL;
+        job->spawn = (unsigned int)time(NULL);
 
         //make next of current_job point to job
-
+        current_job->next = job;
         //make job to be current_job
-
-        //set the next of job to be NULL
-
+        job = current_job;
     }
 }
 
@@ -197,11 +200,7 @@ int wordCount(char *filename,char* flag)
     FILE *fp = fopen(filename,"r");
     int count=0;
 
-    //if flag is l
-    //count the number of lines in the file
-    //set it in cnt
-    if (!strcmp(flag, "-l")) {
-        // Extract characters from file and store in character c
+    if (!strcmp(flag, "-l")) { // get line count
         for (int c = getc(fp); c != EOF; c = getc(fp)) {
             if (c == '\n') {
                 count = count + 1;
@@ -210,8 +209,7 @@ int wordCount(char *filename,char* flag)
         printf("%d",count);
     }
 
-    if (!strcmp(flag, "-w")) {
-        // Extract characters from file and store in character c
+    if (!strcmp(flag, "-w")) { // get word count
         for (int c = getc(fp); c != EOF; c = getc(fp)) {
             if (c == ' ' || c == '\n') {
                 count = count + 1;
@@ -220,12 +218,13 @@ int wordCount(char *filename,char* flag)
         printf("%d",count);
     }
 
-//    //if flag is w
-//    //count the number of words in the file
-//    //set it in cnt
-//    if (flag == "w") {
-//        printf("%d",countWords(filename));
-//    }
+    if (access(filename, F_OK ) == -1){ // file does not exist
+        printf("The file does not exist");
+    }
+
+    if (strcmp(flag, "-w") && strcmp(flag, "-l")){ // flag is unrecognized
+        printf("Unrecognized flag");
+    }
 
     return count;
 }
@@ -465,11 +464,11 @@ int main(void)
 //            if (pid > 0)
 //            {
 //                //we are inside parent
-//                //printf("inside the parent\n");
+//                printf("inside the parent\n");
 //                if (bg == 0)
 //                {
 //                    //FOREGROUND
-//                    // waitpid with proper argument required
+//                    waitpid(pid, &status, 0);
 //                }
 //                else
 //                {
