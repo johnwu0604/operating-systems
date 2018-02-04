@@ -443,77 +443,77 @@ int main(void)
             //call the word count function
             wordCount(args[2],args[1]);
         }
-//        else
-//        {
-//            //Now handle the executable commands here
-//            /* the steps can be..:
-//            (1) fork a child process using fork()
-//            (2) the child process will invoke execvp()
-//            (3) if background is not specified, the parent will wait,
-//                otherwise parent starts the next command... */
-//
-//
-//            //hint : samosas are nice but often there
-//            //is a long waiting line for it.
-//
-//            //create a child
-//            pid = fork();
-//
-//            //to check if it is parent
-//            if (pid > 0)
-//            {
-//                //we are inside parent
-//                printf("inside the parent\n");
-//                if (bg == 0)
-//                {
-//                    //FOREGROUND
-//                    waitpid(pid, &status, 0);
-//                }
-//                else
-//                {
-//                    //BACKGROUND
-//                    process_id = pid;
-//                    addToJobList(args);
-//                    // waitpid with proper argument required
-//                }
-//            }
-//            else
-//            {
-//                // we are inside the child
-//
-//                //introducing augmented delay
-//                performAugmentedWait();
-//
-//                //check for redirection
-//                //now you know what does args store
-//                //check if args has ">"
-//                //if yes set isred to 1
-//                //else set isred to 0
-//
-//                //if redirection is enabled
-//                if (isred == 1)
-//                {
-//                    //open file and change output from stdout to that
-//                    //make sure you use all the read write exec authorisation flags
-//                    //while you use open (man 2 open) to open file
-//
-//                    //set ">" and redirected filename to NULL
-//                    args[i] = NULL;
-//                    args[i + 1] = NULL;
-//
-//                    //run your command
-//                    execvp(args[0], args);
-//
-//                    //restore to stdout
-//                    fflush(stdout);
-//                }
-//                else
-//                {
-//                    //simply execute the command.
-//                    execvp(args[0], args);
-//                }
-//            }
-//        }
+        else
+        {
+            //Now handle the executable commands here
+            /* the steps can be..:
+            (1) fork a child process using fork()
+            (2) the child process will invoke execvp()
+            (3) if background is not specified, the parent will wait,
+                otherwise parent starts the next command... */
+
+
+            //hint : samosas are nice but often there
+            //is a long waiting line for it.
+
+            //create a child
+            pid = fork();
+
+            //to check if it is parent
+            if (pid > 0)
+            {
+                //we are inside parent
+                printf("inside the parent\n");
+                if (bg == 0)
+                {
+                    //FOREGROUND
+                    waitpid(pid, &status, 0);
+                }
+                else
+                {
+                    //BACKGROUND
+                    process_id = pid;
+                    addToJobList(args);
+                    waitpid(pid, &status, 0);
+                }
+            }
+            else
+            {
+                // we are inside the child
+
+                //introducing augmented delay
+                performAugmentedWait();
+
+                //check for redirection
+                //now you know what does args store
+                //check if args has ">"
+                //if yes set isred to 1
+                //else set isred to 0
+
+                //if redirection is enabled
+                if (isred == 1)
+                {
+                    //open file and change output from stdout to that
+                    //make sure you use all the read write exec authorisation flags
+                    //while you use open (man 2 open) to open file
+
+                    //set ">" and redirected filename to NULL
+                    args[i] = NULL;
+                    args[i + 1] = NULL;
+
+                    //run your command
+                    execvp(args[0], args);
+
+                    //restore to stdout
+                    fflush(stdout);
+                }
+                else
+                {
+                    //simply execute the command.
+                    execvp(args[0], args);
+                }
+            }
+        }
     }
 
     return 0;
