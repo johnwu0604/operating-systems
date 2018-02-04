@@ -380,25 +380,16 @@ int main(void)
         }
         else if (!strcmp("ls", args[0]))
         {
-            // create the pipe
-            int pipefd[2];
-            pipe(pipefd);
-            // command arguments
-            char *argv[] = { "ls", 0 };
+            int status;
+            char *args[2];
 
-            if (fork() == 0) {
-                // Child process execution
-                close(pipefd[0]); // close reading end of the pipe
-                dup2(pipefd[1], 1); // send stdout to the pipe
-                close(pipefd[1]); // close the descriptor
-                execvp(argv[0],argv); // execute command
-            } else {
-                // Parent process execution
-                char buffer[1024];
-                close(pipefd[1]); // close the write end of the pipe
-                read(pipefd[0], buffer, sizeof(buffer)); // read the data in the buffer
-                printf("%s", buffer); // print to piped output
-            }
+            argv[0] = "/bin/ls";        // first arg is the full path to the executable
+            argv[1] = NULL;             // list of args must be NULL terminated
+
+            if ( fork() == 0 )
+                execv( argv[0], argv ); // child: call execv with the path and the args
+            else
+                wait( &status );        // parent: wait for the child (not really necessary)
         }
 //        else if (!strcmp("pwd", args[0]))
 //        {
