@@ -62,7 +62,7 @@ void addToJobList(char *args[])
         //set its pid from the global variable process_id
         job->pid = process_id;
         //cmd can be set to arg[0]
-        job->cmd = arg[0];
+        job->cmd = args[0];
         //set the job->next to point to NULL.
         job->next = NULL;
         //set the job->spawn using time function
@@ -87,7 +87,7 @@ void addToJobList(char *args[])
         struct node *job = malloc(sizeof(struct node));
         job->number = current_job->number + 1;
         job->pid = process_id;
-        job->cmd = arg[0];
+        job->cmd = args[0];
         job->next = NULL;
         job->spawn = (unsigned int)time(NULL);
 
