@@ -201,7 +201,7 @@ int wordCount(char *filename,char* flag)
     int count=0;
 
     if (access(filename, F_OK ) == -1){ // file does not exist
-        printf("The file does not exist \n");
+        printf("The file does not exist\n");
     } else {
         if (!strcmp(flag, "-l")) { // get line count
             for (int c = getc(fp); c != EOF; c = getc(fp)) {
@@ -209,7 +209,7 @@ int wordCount(char *filename,char* flag)
                     count = count + 1;
                 }
             }
-            printf("%d \n",count);
+            printf("%d",count);
         }
         if (!strcmp(flag, "-w")) { // get word count
             for (int c = getc(fp); c != EOF; c = getc(fp)) {
@@ -217,12 +217,12 @@ int wordCount(char *filename,char* flag)
                     count = count + 1;
                 }
             }
-            printf("%d \n",count);
+            printf("%d",count);
         }
     }
 
     if (strcmp(flag, "-w") && strcmp(flag, "-l")){ // flag is unrecognized
-        printf("Unrecognized flag \n");
+        printf("Unrecognized flag \n0");
     }
 
     return count;
