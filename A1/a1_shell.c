@@ -496,7 +496,6 @@ int main(void)
                     //simply execute the command.
                     execvp(args[0], args);
                 }
-                cnt = getcmd("\n>> ", args, &bg, &nice);
             }
         }
     }
