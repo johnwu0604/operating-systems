@@ -200,7 +200,7 @@ int wordCount(char *filename,char* flag)
     //if flag is l
     //count the number of lines in the file
     //set it in cnt
-    if (flag == "l") {
+    if (!strcmp(flag, "l")) {
         // Extract characters from file and store in character c
         for (int c = getc(fp); c != EOF; c = getc(fp)) {
             if (c == '\n') {
