@@ -194,15 +194,13 @@ void waitForEmptyLL(int nice, int bg)
  */
 int wordCount(char *filename,char* flag)
 {
-    int count;
-    FILE *fp = fopen(filename);
+    FILE *fp = fopen(filename,"r");
     int count=0;
 
-    printf("Total number of lines %d\n",count);
     //if flag is l
     //count the number of lines in the file
     //set it in cnt
-    if (flag == 'l') {
+    if (flag == "l") {
         do
         {
             ch = fgetc(fp);
@@ -214,7 +212,7 @@ int wordCount(char *filename,char* flag)
 //    //if flag is w
 //    //count the number of words in the file
 //    //set it in cnt
-//    if (flag == 'w') {
+//    if (flag == "w") {
 //        printf("%d",countWords(filename));
 //    }
 
