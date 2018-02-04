@@ -369,6 +369,7 @@ int main(void)
             // if no destination directory given
             // change to home directory
             if (args[1] == NULL) {
+                printf("hi");
                 argv[1] = "/home";
             }
 
