@@ -204,7 +204,16 @@ int wordCount(char *filename,char* flag)
         // Extract characters from file and store in character c
         for (int c = getc(fp); c != EOF; c = getc(fp)) {
             if (c == '\n') {
-                // Increment count if this character is newline
+                count = count + 1;
+            }
+        }
+        printf("%d",count);
+    }
+
+    if (!strcmp(flag, "-w")) {
+        // Extract characters from file and store in character c
+        for (int c = getc(fp); c != EOF; c = getc(fp)) {
+            if (c == ' ' || c == '\n') {
                 count = count + 1;
             }
         }
