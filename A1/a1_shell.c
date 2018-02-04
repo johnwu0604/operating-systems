@@ -18,6 +18,8 @@ and falls under the McGill code of conduct, to the best of my knowledge.
 #include <sys/wait.h>//for waitpid
 #include <fcntl.h>  //open function to open a file. type "man 2 open" in terminal
 #include <time.h>   //to handle time
+#include <dirent.h>
+#include <errno.h>
 
 //pointer to Linked list head
 struct node *head_job = NULL;
