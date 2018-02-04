@@ -202,7 +202,7 @@ int wordCount(char *filename,char* flag)
     //set it in cnt
     if (flag == "l") {
         // Extract characters from file and store in character c
-        for (c = getc(fp); c != EOF; c = getc(fp)) {
+        for (int c = getc(fp); c != EOF; c = getc(fp)) {
             if (c == '\n') {
                 // Increment count if this character is newline
                 count = count + 1;
