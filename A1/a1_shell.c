@@ -373,11 +373,22 @@ int main(void)
 
             //if given directory does not exist
             //print directory does not exit
+            DIR* dir = opendir(args[1]);
+            if (dir)
+            {
+                // directory exists, change directory
+                closedir(dir);
+                chdir(args[1]);
+            }
+            else if (ENOENT == errno)
+            {
+                printf("Directory does not exist");
+            }
+            else
+            {
+                /* failed for some other reason. */
+            }
 
-            //if everthing is fine
-            //change to destination directory
-            printf("%s",args[1]);
-            chdir(args[1]);
         }
         else if (!strcmp("ls", args[0]))
         {
