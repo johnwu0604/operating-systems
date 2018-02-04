@@ -453,14 +453,6 @@ int main(void)
                 {
                     //FOREGROUND
                     waitpid(pid, &status, 0);
-                    if (status == 0)
-                    {
-                        printf("\n");
-                    }
-                    if (status == 1)
-                    {
-                        printf("Any error occured!");
-                    }
                 }
                 else
                 {
@@ -503,6 +495,7 @@ int main(void)
                 {
                     //simply execute the command.
                     execvp(args[0], args);
+                    exit(1);
                 }
             }
         }
