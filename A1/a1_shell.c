@@ -219,9 +219,10 @@ int wordCount(char *filename,char* flag)
             }
             printf("%d",count);
         }
-        if (strcmp(flag, "-w") && strcmp(flag, "-l")){ // flag is unrecognized
-            printf("Unrecognized flag");
-        }
+    }
+
+    if (strcmp(flag, "-w") && strcmp(flag, "-l")){ // flag is unrecognized
+        printf("Unrecognized flag");
     }
 
     return count;
