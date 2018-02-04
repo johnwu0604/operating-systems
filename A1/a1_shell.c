@@ -256,12 +256,12 @@ int waitforjob(char *jobnc)
     int jobn = (*jobnc) - '0';
     trv = head_job;
     //traverse through linked list and find the corresponding job
-    while (trv->next != NULL) {
+    while (trv != NULL) {
         if (trv->number = jobn) {
             break;
         }
-        trv = trv->next;
     }
+    printf("Bring jobn %d and pid %d to foreground", trv->number, trv->pid);
     waitpid(trv->pid,NULL,0);
     return 0;
 }
