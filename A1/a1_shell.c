@@ -198,10 +198,16 @@ int wordCount(char *filename,char* flag)
     //if flag is l
     //count the number of lines in the file
     //set it in cnt
+    if (flag == 'l') {
+        printf("%d",countlines(filename));
+    }
 
     //if flag is w
     //count the number of words in the file
     //set it in cnt
+    if (flag == 'w') {
+        printf("%d",countWords(filename));
+    }
 
     return cnt;
 }
@@ -410,18 +416,17 @@ int main(void)
             //use getcwd and print the current working directory
             char cwd[1024];
             if (getcwd(cwd, sizeof(cwd)) != NULL) {
-                printf("Present working directory: %s\n", cwd);
+                printf("%s", cwd);
             }
             else {
                 perror("ERROR! Present working directory could not be found");
             }
-
         }
-//        else if(!strcmp("wc",args[0]))
-//        {
-//            //call the word count function
-//            wordCount(args[2],args[1]);
-//        }
+        else if(!strcmp("wc",args[0]))
+        {
+            //call the word count function
+            wordCount(args[2],args[1]);
+        }
 //        else
 //        {
 //            //Now handle the executable commands here
