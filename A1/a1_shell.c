@@ -381,7 +381,7 @@ int main(void)
         else if (!strcmp("ls", args[0]))
         {
             int status;
-            char *args[2];
+            char *argv[2];
 
             argv[0] = "/bin/ls";        // first arg is the full path to the executable
             argv[1] = NULL;             // list of args must be NULL terminated
