@@ -200,30 +200,28 @@ int wordCount(char *filename,char* flag)
     FILE *fp = fopen(filename,"r");
     int count=0;
 
-    if (!strcmp(flag, "-l")) { // get line count
-        for (int c = getc(fp); c != EOF; c = getc(fp)) {
-            if (c == '\n') {
-                count = count + 1;
-            }
-        }
-        printf("%d",count);
-    }
-
-    if (!strcmp(flag, "-w")) { // get word count
-        for (int c = getc(fp); c != EOF; c = getc(fp)) {
-            if (c == ' ' || c == '\n') {
-                count = count + 1;
-            }
-        }
-        printf("%d",count);
-    }
-
     if (access(filename, F_OK ) == -1){ // file does not exist
         printf("The file does not exist");
-    }
-
-    if (strcmp(flag, "-w") && strcmp(flag, "-l")){ // flag is unrecognized
-        printf("Unrecognized flag");
+    } else {
+        if (!strcmp(flag, "-l")) { // get line count
+            for (int c = getc(fp); c != EOF; c = getc(fp)) {
+                if (c == '\n') {
+                    count = count + 1;
+                }
+            }
+            printf("%d",count);
+        }
+        if (!strcmp(flag, "-w")) { // get word count
+            for (int c = getc(fp); c != EOF; c = getc(fp)) {
+                if (c == ' ' || c == '\n') {
+                    count = count + 1;
+                }
+            }
+            printf("%d",count);
+        }
+        if (strcmp(flag, "-w") && strcmp(flag, "-l")){ // flag is unrecognized
+            printf("Unrecognized flag");
+        }
     }
 
     return count;
