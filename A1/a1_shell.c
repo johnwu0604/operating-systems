@@ -201,11 +201,13 @@ int wordCount(char *filename,char* flag)
     //count the number of lines in the file
     //set it in cnt
     if (flag == "l") {
-        do
-        {
-            ch = fgetc(fp);
-            if(ch == '\n') count++;
-        } while( ch != EOF );
+        // Extract characters from file and store in character c
+        for (c = getc(fp); c != EOF; c = getc(fp)) {
+            if (c == '\n') {
+                // Increment count if this character is newline
+                count = count + 1;
+            }
+        }
         printf("%d",count);
     }
 
@@ -216,7 +218,7 @@ int wordCount(char *filename,char* flag)
 //        printf("%d",countWords(filename));
 //    }
 
-    return cnt;
+    return count;
 }
 
 /**
