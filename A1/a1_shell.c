@@ -497,9 +497,9 @@ int main(void)
                     //make sure you use all the read write exec authorisation flags
                     //while you use open (man 2 open) to open file
 
-                    //set ">" and redirected filename to NULL
-                    args[i] = NULL;
-                    args[i + 1] = NULL;
+//                    //set ">" and redirected filename to NULL
+//                    args[i] = NULL;
+//                    args[i + 1] = NULL;
 
                     //run your command
                     execvp(args[0], args);
