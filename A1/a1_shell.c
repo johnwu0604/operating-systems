@@ -392,24 +392,31 @@ int main(void)
             }
 
         }
-        else if (!strcmp("ls", args[0]))
-        {
-            int status;
-            char *argv[2];
-
-            argv[0] = "/bin/ls";        // first arg is the full path to the executable
-            argv[1] = NULL;             // list of args must be NULL terminated
-
-            if ( fork() == 0 )
-                execv( argv[0], argv ); // child: call execv with the path and the args
-            else
-                wait( &status );        // parent: wait for the child (not really necessary)
-        }
-//        else if (!strcmp("pwd", args[0]))
+//        else if (!strcmp("ls", args[0]))
 //        {
-//            //use getcwd and print the current working directory
+//            int status;
+//            char *argv[2];
 //
+//            argv[0] = "/bin/ls";        // first arg is the full path to the executable
+//            argv[1] = NULL;             // list of args must be NULL terminated
+//
+//            if ( fork() == 0 )
+//                execv( argv[0], argv ); // child: call execv with the path and the args
+//            else
+//                wait( &status );        // parent: wait for the child (not really necessary)
 //        }
+        else if (!strcmp("pwd", args[0]))
+        {
+            //use getcwd and print the current working directory
+            char cwd[1024];
+            if (getcwd(cwd, sizeof(cwd)) != NULL) {
+                printf("Present working directory: %s\n", cwd);
+            }
+            else {
+                perror("ERROR! Present working directory could not be found");
+            }
+
+        }
 //        else if(!strcmp("wc",args[0]))
 //        {
 //            //call the word count function
