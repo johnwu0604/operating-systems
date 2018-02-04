@@ -405,7 +405,7 @@ int main(void)
             }
             else if (ENOENT == errno)
             {
-                printf("Directory does not exist");
+                printf("cd: %s: No such file or directory", args[1]);
             }
             else
             {
