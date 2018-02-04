@@ -124,14 +124,14 @@ void refreshJobList()
         ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
         if (ret_pid == 0)
         {
-            // process has ended, delete node
-            prev_job->next = current_job->next;
+            // process still running, keep node
+            prev_job = current_job;
             current_job = current_job->next;
         }
         else
         {
-            // process still running, keep node
-            prev_job = current_job;
+            // process has ended, delete node
+            prev_job->next = current_job->next;
             current_job = current_job->next;
         }
     }
@@ -158,11 +158,10 @@ void listAllJobs()
 
     //traverse the linked list and print using the following statement for each job
     while(current_job != NULL) {
-        //ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
-//        if (ret_pid == 0) {
-//            printf("%d\t%d\t%s\tRUNNING\t%s\n", current_job->number, current_job->pid, current_job->cmd, ctime(&(current_job->spawn)));
-//        }
-        printf("%d\t%d\t%s\tRUNNING\t%s\n", current_job->number, current_job->pid, current_job->cmd, ctime(&(current_job->spawn)));
+        ret_pid = waitpid(current_job->pid, NULL, WNOHANG);
+        if (ret_pid == 0) {
+            printf("%d\t%d\t%s\tRUNNING\t%s\n", current_job->number, current_job->pid, current_job->cmd, ctime(&(current_job->spawn)));
+        }
         current_job = current_job->next;
     }
     return;
