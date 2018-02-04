@@ -365,12 +365,10 @@ int main(void)
         }
         else if (!strcmp("cd", args[0]))
         {
-            char *argv[] = { "cd", 0 };
             // if no destination directory given
             // change to home directory
             if (args[1] == NULL) {
-                printf("hi");
-                argv[1] = "/home";
+                args[1] = "/home";
             }
 
             //if given directory does not exist
@@ -378,7 +376,7 @@ int main(void)
 
             //if everthing is fine
             //change to destination directory
-            execvp(argv[0], argv);
+            chdir(args[1]);
         }
         else if (!strcmp("ls", args[0]))
         {
