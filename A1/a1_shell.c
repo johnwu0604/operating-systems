@@ -256,7 +256,7 @@ int waitforjob(char *jobnc)
     int jobn = (*jobnc) - '0';
     trv = head_job;
     //traverse through linked list and find the corresponding job
-    while (trv.next != NULL) {
+    while (trv->next != NULL) {
         if (trv->number = jobn) {
             break;
         }
