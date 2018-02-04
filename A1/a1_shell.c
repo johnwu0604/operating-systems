@@ -449,7 +449,6 @@ int main(void)
             if (pid > 0)
             {
                 //we are inside parent
-                printf("inside the parent\n");
                 if (bg == 0)
                 {
                     //FOREGROUND
@@ -460,7 +459,6 @@ int main(void)
                     //BACKGROUND
                     process_id = pid;
                     addToJobList(args);
-                    //waitpid(pid, &status, 0);
                 }
             }
             else
