@@ -495,8 +495,8 @@ int main(void)
                 {
                     //simply execute the command.
                     execvp(args[0], args);
-                    waitpid(pid, &status, 0);
                 }
+                cnt = getcmd("\n>> ", args, &bg, &nice);
             }
         }
     }
