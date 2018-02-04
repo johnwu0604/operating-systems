@@ -495,11 +495,9 @@ int main(void)
                 {
                     //simply execute the command.
                     execvp(args[0], args);
-                    exit(1);
                 }
             }
         }
     }
-
     return 0;
 }
