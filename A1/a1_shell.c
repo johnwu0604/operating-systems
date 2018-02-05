@@ -480,6 +480,7 @@ int main(void)
                     if (strchr(c, *input))
                     {
                         isred = 1;
+                        break;
                     }
                     input++;
                 }
