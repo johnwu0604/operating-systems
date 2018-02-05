@@ -481,7 +481,7 @@ int main(void)
                     {
                         isred = 1;
                     }
-                    c++;
+                    input++;
                 }
 
                 //if redirection is enabled
