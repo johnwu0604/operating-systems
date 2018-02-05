@@ -488,21 +488,33 @@ int main(void)
                 //if redirection is enabled
                 if (isred == 1)
                 {
-                    printf("Hello");
                     //open file and change output from stdout to that
                     //make sure you use all the read write exec authorisation flags
                     //while you use open (man 2 open) to open file
-                    char *token = strtok(args[0], ">");
-                    printf("%s", token);
+                    char *parsedInput = strtok(args[0], ">");
+                    // holds the command
+                    args[0] = parsedInput;
                     token = strtok(NULL, ">");
-                    printf("%s", token);
+                    // holds the output file name
+                    args[1] = parsedInput;
+
+
+                    int stdout_copy = dup(1);
+
+                    // Redirect output to redirect_out.txt
+                    int file=open(args[1], O_CREAT | O_RDWR | O_APPEND,
+                                  S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
+                    dup2(file,1);
+                    close(file);
+                    execvp(args[0], args);
+
 
 //                    //set ">" and redirected filename to NULL
 //                    args[i] = NULL;
 //                    args[i + 1] = NULL;
 
                     //run your command
-                    execvp(args[0], args);
+                    //execvp(args[0], args);
 
                     //restore to stdout
                     fflush(stdout);
