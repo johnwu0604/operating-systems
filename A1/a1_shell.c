@@ -477,7 +477,7 @@ int main(void)
                 char *input = args[0];
                 while (*input)
                 {
-                    if (strchr(arcrow, *input))
+                    if (strchr(c, *input))
                     {
                         isred = 1;
                     }
