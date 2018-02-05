@@ -484,7 +484,6 @@ int main(void)
                     }
                     input++;
                 }
-
                 //if redirection is enabled
                 if (isred == 1)
                 {
@@ -496,26 +495,14 @@ int main(void)
                     args[0] = parsedInput;
                     // this now holds the file name
                     parsedInput = strtok(NULL, ">");
-
-
-                    int stdout_copy = dup(1);
-
                     // Redirect output
                     int file=open(parsedInput, O_CREAT | O_RDWR | O_APPEND,
                                   S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
                     dup2(file,1);
                     close(file);
+                    // execute command
                     execvp(args[0], args);
-
-
-//                    //set ">" and redirected filename to NULL
-//                    args[i] = NULL;
-//                    args[i + 1] = NULL;
-
-                    //run your command
-                    //execvp(args[0], args);
-
-                    //restore to stdout
+                    // restore to stdout
                     fflush(stdout);
                 }
                 else
