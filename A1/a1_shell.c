@@ -459,6 +459,7 @@ int main(void)
                     //BACKGROUND
                     process_id = pid;
                     addToJobList(args);
+                    printf("\n>> ");
                 }
             }
             else
