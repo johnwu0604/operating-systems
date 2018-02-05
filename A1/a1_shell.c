@@ -473,9 +473,9 @@ int main(void)
                 //check if args has ">"
                 //if yes set isred to 1
                 //else set isred to 0
-                for (i = 0; i < strlen(args[0]); i++)
+                for (int i = 0; i < strlen(args[0]); i++)
                 {
-                    if (args[0][i] == ">")
+                    if (!strcmp(args[0][i], ">"))
                     {
                         isred = 1;
                     }
