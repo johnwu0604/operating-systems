@@ -180,6 +180,7 @@ void waitForEmptyLL(int nice, int bg)
     {
         while (head_job != NULL)
         {
+            printf("checking linked list");
             sleep(1);
             refreshJobList();
         }
@@ -441,10 +442,7 @@ int main(void)
 
             //hint : samosas are nice but often there
             //is a long waiting line for it.
-            if (nice == 1) {
-                printf("Hi there");
-            }
-
+            waitForEmptyLL(nice, bg);
 
             //create a child
             pid = fork();
