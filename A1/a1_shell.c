@@ -5,34 +5,32 @@ and falls under the McGill code of conduct, to the best of my knowledge.
 -----------------------------------------------------------------
 */
 
-//Please enter your name and McGill ID below
-//Name: John Wu
-//McGill ID: 260612056
+// Please enter your name and McGill ID below
+// Name: John Wu
+// McGill ID: 260612056
 
-//all the header files you would require
-#include <stdio.h>  //for standard IO
-#include <unistd.h> //for execvp/dup/dup2
-#include <string.h> //for string manipulation
-#include <stdlib.h> //for fork
-#include <ctype.h>  //for character type check (isnum,isalpha,isupper etc)
-#include <sys/wait.h>//for waitpid
-#include <fcntl.h>  //open function to open a file. type "man 2 open" in terminal
-#include <time.h>   //to handle time
+// all the header files you would require
+#include <stdio.h>  // for standard IO
+#include <unistd.h> // for execvp/dup/dup2
+#include <string.h> // for string manipulation
+#include <stdlib.h> // for fork
+#include <ctype.h>  // for character type check (isnum,isalpha,isupper etc)
+#include <sys/wait.h>// for waitpid
+#include <fcntl.h>  // open function to open a file. type "man 2 open" in terminal
+#include <time.h>   // to handle time
 #include <dirent.h>
 #include <errno.h>
 
-//pointer to Linked list head
+// pointer to Linked list head
 struct node *head_job = NULL;
 
-//pointer to
+// pointer to current _job
 struct node *current_job = NULL;
 
-//global variable used to store process id of process
-//that has been just created
-//can be used while adding a job to linked list
+// global variable used to store process id of process that has been just created
 pid_t process_id;
 
-//flag variable to check if redirection of output is required
+// flag variable to check if redirection of output is required
 int isred = 0;
 
 /**
@@ -72,9 +70,7 @@ void addToJobList(char *args[])
         //set current_job to be head_job
         current_job = head_job;
     }
-
-        //Otherwise create a new job node and link the current node to it
-    else
+    else // Otherwise create a new job node and link the current node to it
     {
         //point current_job to head_job
         current_job = head_job;
@@ -82,7 +78,6 @@ void addToJobList(char *args[])
         while(current_job->next != NULL) {
             current_job = current_job->next;
         }
-
         //init all values of the job like above num,pid,cmd.spawn
         struct node *job = malloc(sizeof(struct node));
         job->number = current_job->number + 1;
@@ -90,7 +85,6 @@ void addToJobList(char *args[])
         job->cmd = args[0];
         job->next = NULL;
         job->spawn = (unsigned int)time(NULL);
-
         //make next of current_job point to job
         current_job->next = job;
         //make job to be current_job
@@ -446,8 +440,7 @@ int main(void)
                 otherwise parent starts the next command... */
 
 
-            //hint : samosas are nice but often there
-            //is a long waiting line for it.
+            // wait until linkedlist is empty if nice command was used
             waitForEmptyLL(nice, bg);
 
             //create a child
