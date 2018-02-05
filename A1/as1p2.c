@@ -262,7 +262,7 @@ int waitforjob(char *jobnc)
             break;
         }
     }
-    printf("Bring jobn %d and pid %d to foreground", trv->number, trv->pid);
+    printf("bringing jobn %d and pid %d to foreground", trv->number, trv->pid);
     waitpid(trv->pid,NULL,0);
     return 0;
 }
