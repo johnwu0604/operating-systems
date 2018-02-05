@@ -475,7 +475,8 @@ int main(void)
                 //else set isred to 0
                 for (int i = 0; i < strlen(args[0]); i++)
                 {
-                    if (!strcmp(args[0][i], ">"))
+                    const var *c = ">";
+                    if (!strcmp(args[0][i], c))
                     {
                         isred = 1;
                     }
