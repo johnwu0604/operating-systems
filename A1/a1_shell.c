@@ -491,8 +491,7 @@ int main(void)
                     //open file and change output from stdout to that
                     //make sure you use all the read write exec authorisation flags
                     //while you use open (man 2 open) to open file
-                    char *token;
-                    token = strtok(args[0], "<");
+                    char *token = strtok(args[0], ">");
                     printf("%s", token);
 
 //                    //set ">" and redirected filename to NULL
