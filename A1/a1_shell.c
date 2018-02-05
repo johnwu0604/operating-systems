@@ -473,13 +473,15 @@ int main(void)
                 //check if args has ">"
                 //if yes set isred to 1
                 //else set isred to 0
-                for (int i = 0; i < strlen(args[0]); i++)
+                const char *c = ">";
+                char *input = args[0];
+                while (*input)
                 {
-                    const char *c = ">";
-                    if (!strcmp(args[0][i], c))
+                    if (strchr(arcrow, *input))
                     {
                         isred = 1;
                     }
+                    c++;
                 }
 
                 //if redirection is enabled
