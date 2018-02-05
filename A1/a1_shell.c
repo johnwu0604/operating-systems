@@ -116,8 +116,8 @@ void refreshJobList()
 
     //perform init for pointers
     starting_job = head_job;
-    current_job = starting_node;
-    prev_job = starting_node;
+    current_job = starting_job;
+    prev_job = starting_job;
 
     //traverse through the linked list
     while (current_job != NULL)
