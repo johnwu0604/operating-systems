@@ -109,15 +109,13 @@ void refreshJobList()
     //on linked list
     struct node *current_job;
     struct node *prev_job;
-    struct node *starting_job;
 
     //variable to store returned pid
     pid_t ret_pid;
 
     //perform init for pointers
-    starting_job = head_job;
-    current_job = starting_job;
-    prev_job = starting_job;
+    current_job = head_job;
+    prev_job = head_job;
 
     //traverse through the linked list
     while (current_job != NULL)
@@ -133,11 +131,13 @@ void refreshJobList()
         else
         {
             // process has ended, delete node
+            if (current_job == head_job) {
+                head_job = current_job->next;
+            }
             prev_job->next = current_job->next;
             current_job = current_job->next;
         }
     }
-    head_job = starting_job;
     return;
 }
 
