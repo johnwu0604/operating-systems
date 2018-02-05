@@ -494,15 +494,14 @@ int main(void)
                     char *parsedInput = strtok(args[0], ">");
                     // holds the command
                     args[0] = parsedInput;
+                    // this now holds the file name
                     parsedInput = strtok(NULL, ">");
-                    // holds the output file name
-                    args[1] = parsedInput;
 
 
                     int stdout_copy = dup(1);
 
-                    // Redirect output to redirect_out.txt
-                    int file=open(args[1], O_CREAT | O_RDWR | O_APPEND,
+                    // Redirect output
+                    int file=open(parsedInput, O_CREAT | O_RDWR | O_APPEND,
                                   S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
                     dup2(file,1);
                     close(file);
