@@ -441,6 +441,10 @@ int main(void)
 
             //hint : samosas are nice but often there
             //is a long waiting line for it.
+            if (nice == 1) {
+                printf("Hi there");
+            }
+
 
             //create a child
             pid = fork();
