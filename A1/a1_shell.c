@@ -135,9 +135,10 @@ void refreshJobList()
                 head_job = current_job->next;
                 prev_job = head_job;
                 current_job = head_job;
+            } else {
+                prev_job->next = current_job->next;
+                current_job = current_job->next;
             }
-            prev_job->next = current_job->next;
-            current_job = current_job->next;
         }
     }
     return;
