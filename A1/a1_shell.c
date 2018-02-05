@@ -494,7 +494,7 @@ int main(void)
                     char *parsedInput = strtok(args[0], ">");
                     // holds the command
                     args[0] = parsedInput;
-                    token = strtok(NULL, ">");
+                    parsedInput = strtok(NULL, ">");
                     // holds the output file name
                     args[1] = parsedInput;
 
