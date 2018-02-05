@@ -133,6 +133,8 @@ void refreshJobList()
             // process has ended, delete node
             if (current_job == head_job) {
                 head_job = current_job->next;
+                prev_job = head_job;
+                current_job = head_job;
             }
             prev_job->next = current_job->next;
             current_job = current_job->next;
