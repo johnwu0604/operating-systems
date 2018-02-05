@@ -189,7 +189,6 @@ void waitForEmptyLL(int nice, int bg)
             printf("checking linked list \n");
             sleep(1);
             refreshJobList();
-            printf("%d", head_job->number);
         }
     }
     return;
