@@ -459,7 +459,6 @@ int main(void)
                     //BACKGROUND
                     process_id = pid;
                     addToJobList(args);
-                    printf("\n>> ");
                 }
             }
             else
@@ -474,10 +473,18 @@ int main(void)
                 //check if args has ">"
                 //if yes set isred to 1
                 //else set isred to 0
+                for (i = 0; i < strlen(args[0]); i++)
+                {
+                    if (args[0][i] == ">")
+                    {
+                        isred = 1;
+                    }
+                }
 
                 //if redirection is enabled
                 if (isred == 1)
                 {
+                    printf("Hello");
                     //open file and change output from stdout to that
                     //make sure you use all the read write exec authorisation flags
                     //while you use open (man 2 open) to open file
