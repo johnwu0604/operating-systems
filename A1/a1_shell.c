@@ -493,6 +493,8 @@ int main(void)
                     //while you use open (man 2 open) to open file
                     char *token = strtok(args[0], ">");
                     printf("%s", token);
+                    token = strtok(NULL, ">");
+                    printf("%s", token);
 
 //                    //set ">" and redirected filename to NULL
 //                    args[i] = NULL;
