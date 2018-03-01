@@ -50,30 +50,34 @@ void *FnAirplane(void *arg)
     int t = 1;
     while(t <= TIME_LIMIT) {
         int item, airplane_id;
+        int passengers = rand() % 6 + 5;
 
         airplane_id = (intptr_t)arg;
-
-        int passengers = rand() % 6 + 5;
         printf("Airplane %d arrives with %d passengers \n", airplane_id, passengers );
 
         /* If another thread uses the buffer, wait */
         pthread_mutex_lock(&shared.mutex);
         for (int i=0; i<passengers; i++) {
             /* If there are no empty slots, rest of passengers take other transport */
-            if (!&shared.empty) {
-                printf("Taxi Line Full");
+            int open_slots;
+            sem_getvalue(&shared.empty, &open_slots);
+            if (open_slots == 0) {
+                printf("Platform is full: Rest of passengers of plane %d take the bus\n", airplane_id);
+                i = passengers;
                 break;
+            } else {
+                sem_wait(&shared.empty);
+                int time_id = t == 10 ? 0: t;
+                printf("Passenger %d%03d%03d of airplane %d arrives to platform \n", time_id, airplane_id, i, airplane_id);
+                shared.buf[shared.in] = i;
+                shared.in = (shared.in+1)%BUFFER_SIZE;
+                fflush(stdout);
+                /* Increment the number of full slots */
+                sem_post(&shared.full);
             }
-            int time_id = t == 10 ? 0: t;
-            printf("Passenger %d%03d%03d of airplane %d arrives to platform \n", time_id, airplane_id, i, airplane_id);
-            shared.buf[shared.in] = i;
-            shared.in = (shared.in+1)%BUFFER_SIZE;
-            fflush(stdout);
         }
         /* Release the buffer */
         pthread_mutex_unlock(&shared.mutex);
-        /* Increment the number of full slots */
-        sem_post(&shared.full);
         usleep(1000*1000);
         t++;
     }
@@ -83,23 +87,34 @@ void *FnAirplane(void *arg)
 /* Consumer Function: simulates a taxi that takes n time to take a passenger home and come back to the airport */
 void *FnTaxi(void *arg)
 {
-    int i, item, index;
+    int item, taxi_id;
+    float t = 1.0;
 
-    index = (intptr_t)arg;
-
-    sem_wait(&shared.full);
-    pthread_mutex_lock(&shared.mutex);
-    item=1;
-    item=shared.buf[shared.out];
-    shared.out = (shared.out+1)%BUFFER_SIZE;
-    fflush(stdout);
-    /* Release the buffer */
-    pthread_mutex_unlock(&shared.mutex);
-    /* Increment the number of full slots */
-    sem_post(&shared.empty);
-
-    /* Interleave  producer and consumer execution */
-    usleep(500*1000);
+    while (t <= 10.0) {
+        taxi_id = (intptr_t)arg;
+        printf("Taxi driver %d arrives\n", taxi_id);
+        pthread_mutex_lock(&shared.mutex);
+        int full_slots;
+        sem_getvalue(&shared.full, &full_slots);
+        if (full_slots == 0) {
+            printf("Taxi driver %d waits for passengers to enter the platform\n", taxi_id);
+        } else {
+            sem_wait(&shared.full);
+            int passenger = shared.buf[shared.out];
+            printf("Taxi driver %d picked up client %d from the platform\n", taxi_id, passenger);
+            shared.out = (shared.out+1)%BUFFER_SIZE;
+            fflush(stdout);
+            /* Decrement the number of empty slots */
+            sem_post(&shared.empty);
+        }
+        /* Release the buffer */
+        pthread_mutex_unlock(&shared.mutex);
+        /* Time delay for taxi to return */
+        int time_delay = rand() % 11 + 30;
+        float fractional_time = time_delay / 60.0;
+        usleep(0.5*1000*1000);
+        t += fractional_time;
+    }
     return NULL;
 }
 
