@@ -37,11 +37,23 @@ typedef struct
 
 sbuf_t shared;
 
-unsigned concatenate(unsigned x, unsigned y) {
-    unsigned pow = 10;
-    while(y >= pow)
-        pow *= 10;
-    return x * pow + y;
+int getPassengerId(int airplane_id, int passenger_id, int time_id) {
+    char time_code[1];
+    char airplane_code[3];
+    char passenger_code[3];
+    snprintf(time_code, 10, "%d", time_id);
+    snprintf(airplane_code, 10, "%03d", airplane_id);
+    snprintf(passenger_code, 10, "%03d", passenger_id);
+
+    char id[7];
+    id[0] = time_code[0];
+    id[1] = airplane_code[0];
+    id[2] = airplane_code[1];
+    id[3] = airplane_code[2];
+    id[4] = passenger_code[0];
+    id[5] = passenger_code[1];
+    id[6] = passenger_code[2];
+    return atoi(id);
 }
 
 /*Producer Function: Simulates an Airplane arriving and dumping 5-10 passengers to the taxi platform */
@@ -68,8 +80,9 @@ void *FnAirplane(void *arg)
             } else {
                 sem_wait(&shared.empty);
                 int time_id = t == 10 ? 0: t;
-                printf("Passenger %d%03d%03d of airplane %d arrives to platform \n", time_id, airplane_id, i, airplane_id);
-                shared.buf[shared.in] = i;
+                int passenger_id = getPassengerId(airplane_id, i, time_id);
+                printf("Passenger %d of airplane %d arrives to platform \n", passenger_id, airplane_id);
+                shared.buf[shared.in] = passenger_id;
                 shared.in = (shared.in+1)%BUFFER_SIZE;
                 fflush(stdout);
                 /* Increment the number of full slots */
@@ -93,20 +106,19 @@ void *FnTaxi(void *arg)
     while (t <= 10.0) {
         taxi_id = (intptr_t)arg;
         printf("Taxi driver %d arrives\n", taxi_id);
-        pthread_mutex_lock(&shared.mutex);
         int full_slots;
         sem_getvalue(&shared.full, &full_slots);
         if (full_slots == 0) {
             printf("Taxi driver %d waits for passengers to enter the platform\n", taxi_id);
-        } else {
-            sem_wait(&shared.full);
-            int passenger = shared.buf[shared.out];
-            printf("Taxi driver %d picked up client %d from the platform\n", taxi_id, passenger);
-            shared.out = (shared.out+1)%BUFFER_SIZE;
-            fflush(stdout);
-            /* Decrement the number of empty slots */
-            sem_post(&shared.empty);
         }
+        sem_wait(&shared.full);
+        pthread_mutex_lock(&shared.mutex);
+        int passenger = shared.buf[shared.out];
+        printf("Taxi driver %d picked up client %d from the platform\n", taxi_id, passenger);
+        shared.out = (shared.out+1)%BUFFER_SIZE;
+        fflush(stdout);
+        /* Decrement the number of empty slots */
+        sem_post(&shared.empty);
         /* Release the buffer */
         pthread_mutex_unlock(&shared.mutex);
         /* Time delay for taxi to return */
@@ -120,7 +132,6 @@ void *FnTaxi(void *arg)
 
 int main(int argc, char *argv[])
 {
-
     int num_airplanes;
     int num_taxis;
 
@@ -147,7 +158,8 @@ int main(int argc, char *argv[])
         printf("Creating airplane thread %d \n", i);
         pthread_create(&airplane_thread, NULL, FnAirplane, (void*)(intptr_t)i);
     }
-    /*create a new Consumer*/
+
+    // instantiate consumers
     for(int i=0; i<num_taxis; i++)
     {
         pthread_t taxi_thread;
