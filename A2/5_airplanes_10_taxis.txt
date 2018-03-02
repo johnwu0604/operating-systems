@@ -1,0 +1,949 @@
+You entered: 5 airplanes per hour
+You entered: 10 taxis
+Creating airplane thread 0 
+Creating airplane thread 1 
+Creating airplane thread 2 
+Creating airplane thread 3 
+Creating airplane thread 4 
+Airplane 0 arrives with 6 passengers 
+Passenger 1000000 of airplane 0 arrives to platform 
+Passenger 1000001 of airplane 0 arrives to platform 
+Passenger 1000002 of airplane 0 arrives to platform 
+Passenger 1000003 of airplane 0 arrives to platform 
+Passenger 1000004 of airplane 0 arrives to platform 
+Passenger 1000005 of airplane 0 arrives to platform 
+Airplane 1 arrives with 9 passengers 
+Passenger 1001000 of airplane 1 arrives to platform 
+Passenger 1001001 of airplane 1 arrives to platform 
+Passenger 1001002 of airplane 1 arrives to platform 
+Passenger 1001003 of airplane 1 arrives to platform 
+Passenger 1001004 of airplane 1 arrives to platform 
+Passenger 1001005 of airplane 1 arrives to platform 
+Passenger 1001006 of airplane 1 arrives to platform 
+Passenger 1001007 of airplane 1 arrives to platform 
+Passenger 1001008 of airplane 1 arrives to platform 
+Airplane 2 arrives with 8 passengers 
+Passenger 1002000 of airplane 2 arrives to platform 
+Passenger 1002001 of airplane 2 arrives to platform 
+Passenger 1002002 of airplane 2 arrives to platform 
+Passenger 1002003 of airplane 2 arrives to platform 
+Passenger 1002004 of airplane 2 arrives to platform 
+Passenger 1002005 of airplane 2 arrives to platform 
+Passenger 1002006 of airplane 2 arrives to platform 
+Passenger 1002007 of airplane 2 arrives to platform 
+Airplane 3 arrives with 6 passengers 
+Passenger 1003000 of airplane 3 arrives to platform 
+Passenger 1003001 of airplane 3 arrives to platform 
+Passenger 1003002 of airplane 3 arrives to platform 
+Passenger 1003003 of airplane 3 arrives to platform 
+Passenger 1003004 of airplane 3 arrives to platform 
+Passenger 1003005 of airplane 3 arrives to platform 
+Taxi driver 9 arrives
+Taxi driver 6 arrives
+Taxi driver 7 arrives
+Taxi driver 8 arrives
+Taxi driver 3 arrives
+Taxi driver 2 arrives
+Taxi driver 1 arrives
+Taxi driver 0 arrives
+Taxi driver 4 arrives
+Taxi driver 5 arrives
+Airplane 4 arrives with 10 passengers 
+Passenger 1004000 of airplane 4 arrives to platform 
+Passenger 1004001 of airplane 4 arrives to platform 
+Passenger 1004002 of airplane 4 arrives to platform 
+Passenger 1004003 of airplane 4 arrives to platform 
+Passenger 1004004 of airplane 4 arrives to platform 
+Passenger 1004005 of airplane 4 arrives to platform 
+Passenger 1004006 of airplane 4 arrives to platform 
+Passenger 1004007 of airplane 4 arrives to platform 
+Passenger 1004008 of airplane 4 arrives to platform 
+Passenger 1004009 of airplane 4 arrives to platform 
+Taxi driver 9 picked up client 1000000 from the platform
+Taxi driver 6 picked up client 1000001 from the platform
+Taxi driver 7 picked up client 1000002 from the platform
+Taxi driver 8 picked up client 1000003 from the platform
+Taxi driver 3 picked up client 1000004 from the platform
+Taxi driver 2 picked up client 1000005 from the platform
+Taxi driver 1 picked up client 1001000 from the platform
+Taxi driver 0 picked up client 1001001 from the platform
+Taxi driver 4 picked up client 1001002 from the platform
+Taxi driver 5 picked up client 1001003 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 1001004 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 1001005 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 1001006 from the platform
+Taxi driver 4 arrives
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 1 arrives
+Taxi driver 0 arrives
+Taxi driver 6 arrives
+Taxi driver 2 arrives
+Taxi driver 4 picked up client 1001007 from the platform
+Taxi driver 5 picked up client 1001008 from the platform
+Taxi driver 8 picked up client 1002000 from the platform
+Taxi driver 1 picked up client 1002001 from the platform
+Taxi driver 0 picked up client 1002002 from the platform
+Taxi driver 6 picked up client 1002003 from the platform
+Taxi driver 2 picked up client 1002004 from the platform
+Airplane 0 arrives with 7 passengers 
+Passenger 2000000 of airplane 0 arrives to platform 
+Passenger 2000001 of airplane 0 arrives to platform 
+Passenger 2000002 of airplane 0 arrives to platform 
+Passenger 2000003 of airplane 0 arrives to platform 
+Passenger 2000004 of airplane 0 arrives to platform 
+Passenger 2000005 of airplane 0 arrives to platform 
+Passenger 2000006 of airplane 0 arrives to platform 
+Airplane 1 arrives with 7 passengers 
+Passenger 2001000 of airplane 1 arrives to platform 
+Passenger 2001001 of airplane 1 arrives to platform 
+Passenger 2001002 of airplane 1 arrives to platform 
+Passenger 2001003 of airplane 1 arrives to platform 
+Passenger 2001004 of airplane 1 arrives to platform 
+Passenger 2001005 of airplane 1 arrives to platform 
+Passenger 2001006 of airplane 1 arrives to platform 
+Airplane 2 arrives with 6 passengers 
+Passenger 2002000 of airplane 2 arrives to platform 
+Passenger 2002001 of airplane 2 arrives to platform 
+Passenger 2002002 of airplane 2 arrives to platform 
+Passenger 2002003 of airplane 2 arrives to platform 
+Passenger 2002004 of airplane 2 arrives to platform 
+Passenger 2002005 of airplane 2 arrives to platform 
+Airplane 3 arrives with 6 passengers 
+Passenger 2003000 of airplane 3 arrives to platform 
+Passenger 2003001 of airplane 3 arrives to platform 
+Passenger 2003002 of airplane 3 arrives to platform 
+Passenger 2003003 of airplane 3 arrives to platform 
+Passenger 2003004 of airplane 3 arrives to platform 
+Passenger 2003005 of airplane 3 arrives to platform 
+Taxi driver 9 arrives
+Taxi driver 7 arrives
+Airplane 4 arrives with 6 passengers 
+Passenger 2004000 of airplane 4 arrives to platform 
+Passenger 2004001 of airplane 4 arrives to platform 
+Passenger 2004002 of airplane 4 arrives to platform 
+Passenger 2004003 of airplane 4 arrives to platform 
+Passenger 2004004 of airplane 4 arrives to platform 
+Passenger 2004005 of airplane 4 arrives to platform 
+Taxi driver 9 picked up client 1002005 from the platform
+Taxi driver 7 picked up client 1002006 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 1002007 from the platform
+Taxi driver 4 arrives
+Taxi driver 5 arrives
+Taxi driver 4 picked up client 1003000 from the platform
+Taxi driver 8 arrives
+Taxi driver 5 picked up client 1003001 from the platform
+Taxi driver 8 picked up client 1003002 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 1003003 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 1003004 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 1003005 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 1004000 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 1004001 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 1004002 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 1004003 from the platform
+Taxi driver 4 arrives
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 4 picked up client 1004004 from the platform
+Taxi driver 5 picked up client 1004005 from the platform
+Taxi driver 8 picked up client 1004006 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 1004007 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 1004008 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 1004009 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 2000000 from the platform
+Airplane 0 arrives with 10 passengers 
+Passenger 3000000 of airplane 0 arrives to platform 
+Passenger 3000001 of airplane 0 arrives to platform 
+Passenger 3000002 of airplane 0 arrives to platform 
+Passenger 3000003 of airplane 0 arrives to platform 
+Passenger 3000004 of airplane 0 arrives to platform 
+Passenger 3000005 of airplane 0 arrives to platform 
+Passenger 3000006 of airplane 0 arrives to platform 
+Passenger 3000007 of airplane 0 arrives to platform 
+Passenger 3000008 of airplane 0 arrives to platform 
+Passenger 3000009 of airplane 0 arrives to platform 
+Airplane 1 arrives with 9 passengers 
+Passenger 3001000 of airplane 1 arrives to platform 
+Passenger 3001001 of airplane 1 arrives to platform 
+Passenger 3001002 of airplane 1 arrives to platform 
+Passenger 3001003 of airplane 1 arrives to platform 
+Passenger 3001004 of airplane 1 arrives to platform 
+Passenger 3001005 of airplane 1 arrives to platform 
+Passenger 3001006 of airplane 1 arrives to platform 
+Passenger 3001007 of airplane 1 arrives to platform 
+Passenger 3001008 of airplane 1 arrives to platform 
+Airplane 2 arrives with 6 passengers 
+Passenger 3002000 of airplane 2 arrives to platform 
+Passenger 3002001 of airplane 2 arrives to platform 
+Passenger 3002002 of airplane 2 arrives to platform 
+Passenger 3002003 of airplane 2 arrives to platform 
+Passenger 3002004 of airplane 2 arrives to platform 
+Passenger 3002005 of airplane 2 arrives to platform 
+Airplane 3 arrives with 7 passengers 
+Passenger 3003000 of airplane 3 arrives to platform 
+Passenger 3003001 of airplane 3 arrives to platform 
+Passenger 3003002 of airplane 3 arrives to platform 
+Passenger 3003003 of airplane 3 arrives to platform 
+Passenger 3003004 of airplane 3 arrives to platform 
+Passenger 3003005 of airplane 3 arrives to platform 
+Passenger 3003006 of airplane 3 arrives to platform 
+Airplane 4 arrives with 7 passengers 
+Passenger 3004000 of airplane 4 arrives to platform 
+Taxi driver 7 arrives
+Passenger 3004001 of airplane 4 arrives to platform 
+Taxi driver 9 arrives
+Passenger 3004002 of airplane 4 arrives to platform 
+Passenger 3004003 of airplane 4 arrives to platform 
+Passenger 3004004 of airplane 4 arrives to platform 
+Taxi driver 3 arrives
+Passenger 3004005 of airplane 4 arrives to platform 
+Taxi driver 4 arrives
+Taxi driver 5 arrives
+Passenger 3004006 of airplane 4 arrives to platform 
+Taxi driver 8 arrives
+Taxi driver 7 picked up client 2000001 from the platform
+Taxi driver 6 arrives
+Taxi driver 9 picked up client 2000002 from the platform
+Taxi driver 2 arrives
+Taxi driver 1 arrives
+Taxi driver 3 picked up client 2000003 from the platform
+Taxi driver 4 picked up client 2000004 from the platform
+Taxi driver 5 picked up client 2000005 from the platform
+Taxi driver 8 picked up client 2000006 from the platform
+Taxi driver 6 picked up client 2001000 from the platform
+Taxi driver 2 picked up client 2001001 from the platform
+Taxi driver 1 picked up client 2001002 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 2001003 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 2001004 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 2001005 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 2001006 from the platform
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 4 arrives
+Taxi driver 6 arrives
+Taxi driver 5 picked up client 2002000 from the platform
+Taxi driver 8 picked up client 2002001 from the platform
+Taxi driver 4 picked up client 2002002 from the platform
+Taxi driver 6 picked up client 2002003 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 2002004 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 2002005 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 2003000 from the platform
+Airplane 0 arrives with 8 passengers 
+Passenger 4000000 of airplane 0 arrives to platform 
+Passenger 4000001 of airplane 0 arrives to platform 
+Passenger 4000002 of airplane 0 arrives to platform 
+Passenger 4000003 of airplane 0 arrives to platform 
+Passenger 4000004 of airplane 0 arrives to platform 
+Passenger 4000005 of airplane 0 arrives to platform 
+Passenger 4000006 of airplane 0 arrives to platform 
+Passenger 4000007 of airplane 0 arrives to platform 
+Airplane 1 arrives with 7 passengers 
+Passenger 4001000 of airplane 1 arrives to platform 
+Passenger 4001001 of airplane 1 arrives to platform 
+Passenger 4001002 of airplane 1 arrives to platform 
+Passenger 4001003 of airplane 1 arrives to platform 
+Passenger 4001004 of airplane 1 arrives to platform 
+Passenger 4001005 of airplane 1 arrives to platform 
+Passenger 4001006 of airplane 1 arrives to platform 
+Airplane 2 arrives with 7 passengers 
+Passenger 4002000 of airplane 2 arrives to platform 
+Passenger 4002001 of airplane 2 arrives to platform 
+Passenger 4002002 of airplane 2 arrives to platform 
+Passenger 4002003 of airplane 2 arrives to platform 
+Passenger 4002004 of airplane 2 arrives to platform 
+Passenger 4002005 of airplane 2 arrives to platform 
+Passenger 4002006 of airplane 2 arrives to platform 
+Airplane 3 arrives with 8 passengers 
+Passenger 4003000 of airplane 3 arrives to platform 
+Passenger 4003001 of airplane 3 arrives to platform 
+Passenger 4003002 of airplane 3 arrives to platform 
+Passenger 4003003 of airplane 3 arrives to platform 
+Passenger 4003004 of airplane 3 arrives to platform 
+Passenger 4003005 of airplane 3 arrives to platform 
+Passenger 4003006 of airplane 3 arrives to platform 
+Passenger 4003007 of airplane 3 arrives to platform 
+Airplane 4 arrives with 7 passengers 
+Passenger 4004000 of airplane 4 arrives to platform 
+Passenger 4004001 of airplane 4 arrives to platform 
+Passenger 4004002 of airplane 4 arrives to platform 
+Passenger 4004003 of airplane 4 arrives to platform 
+Taxi driver 7 arrives
+Passenger 4004004 of airplane 4 arrives to platform 
+Passenger 4004005 of airplane 4 arrives to platform 
+Passenger 4004006 of airplane 4 arrives to platform 
+Taxi driver 9 arrives
+Taxi driver 7 picked up client 2003001 from the platform
+Taxi driver 9 picked up client 2003002 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 2003003 from the platform
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 4 arrives
+Taxi driver 6 arrives
+Taxi driver 5 picked up client 2003004 from the platform
+Taxi driver 8 picked up client 2003005 from the platform
+Taxi driver 4 picked up client 2004000 from the platform
+Taxi driver 6 picked up client 2004001 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 2004002 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 2004003 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 2004004 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 2004005 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 3000000 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 3000001 from the platform
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 4 arrives
+Taxi driver 5 picked up client 3000002 from the platform
+Taxi driver 6 arrives
+Taxi driver 8 picked up client 3000003 from the platform
+Taxi driver 4 picked up client 3000004 from the platform
+Taxi driver 6 picked up client 3000005 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 3000006 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 3000007 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 3000008 from the platform
+Airplane 0 arrives with 8 passengers 
+Passenger 5000000 of airplane 0 arrives to platform 
+Passenger 5000001 of airplane 0 arrives to platform 
+Passenger 5000002 of airplane 0 arrives to platform 
+Passenger 5000003 of airplane 0 arrives to platform 
+Passenger 5000004 of airplane 0 arrives to platform 
+Passenger 5000005 of airplane 0 arrives to platform 
+Passenger 5000006 of airplane 0 arrives to platform 
+Passenger 5000007 of airplane 0 arrives to platform 
+Airplane 1 arrives with 9 passengers 
+Passenger 5001000 of airplane 1 arrives to platform 
+Passenger 5001001 of airplane 1 arrives to platform 
+Passenger 5001002 of airplane 1 arrives to platform 
+Passenger 5001003 of airplane 1 arrives to platform 
+Passenger 5001004 of airplane 1 arrives to platform 
+Passenger 5001005 of airplane 1 arrives to platform 
+Passenger 5001006 of airplane 1 arrives to platform 
+Passenger 5001007 of airplane 1 arrives to platform 
+Passenger 5001008 of airplane 1 arrives to platform 
+Airplane 2 arrives with 7 passengers 
+Passenger 5002000 of airplane 2 arrives to platform 
+Passenger 5002001 of airplane 2 arrives to platform 
+Passenger 5002002 of airplane 2 arrives to platform 
+Passenger 5002003 of airplane 2 arrives to platform 
+Passenger 5002004 of airplane 2 arrives to platform 
+Passenger 5002005 of airplane 2 arrives to platform 
+Passenger 5002006 of airplane 2 arrives to platform 
+Airplane 3 arrives with 9 passengers 
+Passenger 5003000 of airplane 3 arrives to platform 
+Passenger 5003001 of airplane 3 arrives to platform 
+Passenger 5003002 of airplane 3 arrives to platform 
+Passenger 5003003 of airplane 3 arrives to platform 
+Passenger 5003004 of airplane 3 arrives to platform 
+Passenger 5003005 of airplane 3 arrives to platform 
+Passenger 5003006 of airplane 3 arrives to platform 
+Passenger 5003007 of airplane 3 arrives to platform 
+Passenger 5003008 of airplane 3 arrives to platform 
+Airplane 4 arrives with 10 passengers 
+Platform is full: Rest of passengers of plane 4 take the bus
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 3000009 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 3001000 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 3001001 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 3001002 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 3001003 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 3001004 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 3001005 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 3001006 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 3001007 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 3001008 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 3002000 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 3002001 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 3002002 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 3002003 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 3002004 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 3002005 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 3003000 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 3003001 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 3003002 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 3003003 from the platform
+Airplane 0 arrives with 10 passengers 
+Passenger 6000000 of airplane 0 arrives to platform 
+Passenger 6000001 of airplane 0 arrives to platform 
+Passenger 6000002 of airplane 0 arrives to platform 
+Passenger 6000003 of airplane 0 arrives to platform 
+Passenger 6000004 of airplane 0 arrives to platform 
+Passenger 6000005 of airplane 0 arrives to platform 
+Passenger 6000006 of airplane 0 arrives to platform 
+Passenger 6000007 of airplane 0 arrives to platform 
+Passenger 6000008 of airplane 0 arrives to platform 
+Passenger 6000009 of airplane 0 arrives to platform 
+Airplane 1 arrives with 8 passengers 
+Passenger 6001000 of airplane 1 arrives to platform 
+Passenger 6001001 of airplane 1 arrives to platform 
+Passenger 6001002 of airplane 1 arrives to platform 
+Passenger 6001003 of airplane 1 arrives to platform 
+Passenger 6001004 of airplane 1 arrives to platform 
+Passenger 6001005 of airplane 1 arrives to platform 
+Passenger 6001006 of airplane 1 arrives to platform 
+Passenger 6001007 of airplane 1 arrives to platform 
+Airplane 2 arrives with 10 passengers 
+Passenger 6002000 of airplane 2 arrives to platform 
+Passenger 6002001 of airplane 2 arrives to platform 
+Platform is full: Rest of passengers of plane 2 take the bus
+Airplane 3 arrives with 8 passengers 
+Platform is full: Rest of passengers of plane 3 take the bus
+Airplane 4 arrives with 6 passengers 
+Platform is full: Rest of passengers of plane 4 take the bus
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 3003004 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 3003005 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 3003006 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 3004000 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 3004001 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 3004002 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 3004003 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 3004004 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 3004005 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 3004006 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 4000000 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 4000001 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 4000002 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 4000003 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 4000004 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 4000005 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 4000006 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 4000007 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 4001000 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 4001001 from the platform
+Airplane 0 arrives with 9 passengers 
+Passenger 7000000 of airplane 0 arrives to platform 
+Passenger 7000001 of airplane 0 arrives to platform 
+Passenger 7000002 of airplane 0 arrives to platform 
+Passenger 7000003 of airplane 0 arrives to platform 
+Passenger 7000004 of airplane 0 arrives to platform 
+Passenger 7000005 of airplane 0 arrives to platform 
+Passenger 7000006 of airplane 0 arrives to platform 
+Passenger 7000007 of airplane 0 arrives to platform 
+Passenger 7000008 of airplane 0 arrives to platform 
+Airplane 1 arrives with 8 passengers 
+Passenger 7001000 of airplane 1 arrives to platform 
+Passenger 7001001 of airplane 1 arrives to platform 
+Passenger 7001002 of airplane 1 arrives to platform 
+Passenger 7001003 of airplane 1 arrives to platform 
+Passenger 7001004 of airplane 1 arrives to platform 
+Passenger 7001005 of airplane 1 arrives to platform 
+Passenger 7001006 of airplane 1 arrives to platform 
+Passenger 7001007 of airplane 1 arrives to platform 
+Airplane 2 arrives with 5 passengers 
+Passenger 7002000 of airplane 2 arrives to platform 
+Passenger 7002001 of airplane 2 arrives to platform 
+Passenger 7002002 of airplane 2 arrives to platform 
+Platform is full: Rest of passengers of plane 2 take the bus
+Airplane 3 arrives with 10 passengers 
+Platform is full: Rest of passengers of plane 3 take the bus
+Airplane 4 arrives with 7 passengers 
+Platform is full: Rest of passengers of plane 4 take the bus
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 4001002 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 4001003 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 4001004 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 4001005 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 4001006 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 4002000 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 4002001 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 4002002 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 4002003 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 4002004 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 4002005 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 4002006 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 4003000 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 4003001 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 4003002 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 4003003 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 4003004 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 4003005 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 4003006 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 4003007 from the platform
+Airplane 0 arrives with 8 passengers 
+Passenger 8000000 of airplane 0 arrives to platform 
+Passenger 8000001 of airplane 0 arrives to platform 
+Passenger 8000002 of airplane 0 arrives to platform 
+Passenger 8000003 of airplane 0 arrives to platform 
+Passenger 8000004 of airplane 0 arrives to platform 
+Passenger 8000005 of airplane 0 arrives to platform 
+Passenger 8000006 of airplane 0 arrives to platform 
+Passenger 8000007 of airplane 0 arrives to platform 
+Airplane 1 arrives with 10 passengers 
+Passenger 8001000 of airplane 1 arrives to platform 
+Passenger 8001001 of airplane 1 arrives to platform 
+Passenger 8001002 of airplane 1 arrives to platform 
+Passenger 8001003 of airplane 1 arrives to platform 
+Passenger 8001004 of airplane 1 arrives to platform 
+Passenger 8001005 of airplane 1 arrives to platform 
+Passenger 8001006 of airplane 1 arrives to platform 
+Passenger 8001007 of airplane 1 arrives to platform 
+Passenger 8001008 of airplane 1 arrives to platform 
+Passenger 8001009 of airplane 1 arrives to platform 
+Airplane 2 arrives with 6 passengers 
+Passenger 8002000 of airplane 2 arrives to platform 
+Passenger 8002001 of airplane 2 arrives to platform 
+Platform is full: Rest of passengers of plane 2 take the bus
+Taxi driver 7 arrives
+Taxi driver 9 arrives
+Airplane 3 arrives with 8 passengers 
+Platform is full: Rest of passengers of plane 3 take the bus
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 4004000 from the platform
+Taxi driver 8 arrives
+Taxi driver 4 arrives
+Taxi driver 1 arrives
+Taxi driver 7 picked up client 4004001 from the platform
+Taxi driver 6 arrives
+Taxi driver 3 arrives
+Taxi driver 9 picked up client 4004002 from the platform
+Taxi driver 0 arrives
+Taxi driver 2 arrives
+Airplane 4 arrives with 9 passengers 
+Passenger 8004000 of airplane 4 arrives to platform 
+Passenger 8004001 of airplane 4 arrives to platform 
+Passenger 8004002 of airplane 4 arrives to platform 
+Platform is full: Rest of passengers of plane 4 take the bus
+Taxi driver 8 picked up client 4004003 from the platform
+Taxi driver 4 picked up client 4004004 from the platform
+Taxi driver 1 picked up client 4004005 from the platform
+Taxi driver 6 picked up client 4004006 from the platform
+Taxi driver 3 picked up client 5000000 from the platform
+Taxi driver 0 picked up client 5000001 from the platform
+Taxi driver 2 picked up client 5000002 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 5000003 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 5000004 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 5000005 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 5000006 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 5000007 from the platform
+Taxi driver 6 arrives
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 5001000 from the platform
+Taxi driver 2 arrives
+Taxi driver 3 arrives
+Taxi driver 0 arrives
+Taxi driver 6 picked up client 5001001 from the platform
+Taxi driver 2 picked up client 5001002 from the platform
+Taxi driver 3 picked up client 5001003 from the platform
+Taxi driver 0 picked up client 5001004 from the platform
+Airplane 0 arrives with 7 passengers 
+Passenger 9000000 of airplane 0 arrives to platform 
+Passenger 9000001 of airplane 0 arrives to platform 
+Passenger 9000002 of airplane 0 arrives to platform 
+Passenger 9000003 of airplane 0 arrives to platform 
+Passenger 9000004 of airplane 0 arrives to platform 
+Passenger 9000005 of airplane 0 arrives to platform 
+Passenger 9000006 of airplane 0 arrives to platform 
+Airplane 1 arrives with 9 passengers 
+Passenger 9001000 of airplane 1 arrives to platform 
+Passenger 9001001 of airplane 1 arrives to platform 
+Passenger 9001002 of airplane 1 arrives to platform 
+Passenger 9001003 of airplane 1 arrives to platform 
+Passenger 9001004 of airplane 1 arrives to platform 
+Passenger 9001005 of airplane 1 arrives to platform 
+Passenger 9001006 of airplane 1 arrives to platform 
+Passenger 9001007 of airplane 1 arrives to platform 
+Passenger 9001008 of airplane 1 arrives to platform 
+Airplane 2 arrives with 6 passengers 
+Passenger 9002000 of airplane 2 arrives to platform 
+Platform is full: Rest of passengers of plane 2 take the bus
+Airplane 3 arrives with 6 passengers 
+Platform is full: Rest of passengers of plane 3 take the bus
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 5001005 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 5001006 from the platform
+Airplane 4 arrives with 7 passengers 
+Passenger 9004000 of airplane 4 arrives to platform 
+Passenger 9004001 of airplane 4 arrives to platform 
+Platform is full: Rest of passengers of plane 4 take the bus
+Taxi driver 9 arrives
+Taxi driver 8 arrives
+Taxi driver 4 arrives
+Taxi driver 9 picked up client 5001007 from the platform
+Taxi driver 8 picked up client 5001008 from the platform
+Taxi driver 1 arrives
+Taxi driver 4 picked up client 5002000 from the platform
+Taxi driver 1 picked up client 5002001 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 5002002 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 5002003 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 5002004 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 5002005 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 5002006 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 5003000 from the platform
+Taxi driver 9 arrives
+Taxi driver 8 arrives
+Taxi driver 9 picked up client 5003001 from the platform
+Taxi driver 4 arrives
+Taxi driver 1 arrives
+Taxi driver 8 picked up client 5003002 from the platform
+Taxi driver 6 arrives
+Taxi driver 4 picked up client 5003003 from the platform
+Taxi driver 2 arrives
+Taxi driver 1 picked up client 5003004 from the platform
+Taxi driver 6 picked up client 5003005 from the platform
+Taxi driver 2 picked up client 5003006 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 5003007 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 5003008 from the platform
+Airplane 0 arrives with 5 passengers 
+Passenger 0000000 of airplane 0 arrives to platform 
+Passenger 0000001 of airplane 0 arrives to platform 
+Passenger 0000002 of airplane 0 arrives to platform 
+Passenger 0000003 of airplane 0 arrives to platform 
+Passenger 0000004 of airplane 0 arrives to platform 
+Airplane 1 arrives with 10 passengers 
+Passenger 0001000 of airplane 1 arrives to platform 
+Passenger 0001001 of airplane 1 arrives to platform 
+Passenger 0001002 of airplane 1 arrives to platform 
+Passenger 0001003 of airplane 1 arrives to platform 
+Passenger 0001004 of airplane 1 arrives to platform 
+Passenger 0001005 of airplane 1 arrives to platform 
+Passenger 0001006 of airplane 1 arrives to platform 
+Passenger 0001007 of airplane 1 arrives to platform 
+Passenger 0001008 of airplane 1 arrives to platform 
+Taxi driver 5 arrives
+Taxi driver 7 arrives
+Passenger 0001009 of airplane 1 arrives to platform 
+Airplane 2 arrives with 10 passengers 
+Passenger 0002000 of airplane 2 arrives to platform 
+Passenger 0002001 of airplane 2 arrives to platform 
+Passenger 0002002 of airplane 2 arrives to platform 
+Platform is full: Rest of passengers of plane 2 take the bus
+Airplane 3 arrives with 7 passengers 
+Platform is full: Rest of passengers of plane 3 take the bus
+Taxi driver 5 picked up client 6000000 from the platform
+Taxi driver 7 picked up client 6000001 from the platform
+Airplane 4 arrives with 9 passengers 
+Passenger 0004000 of airplane 4 arrives to platform 
+Passenger 0004001 of airplane 4 arrives to platform 
+Platform is full: Rest of passengers of plane 4 take the bus
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 6000002 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 6000003 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 6000004 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 6000005 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 6000006 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 6000007 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 6000008 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 6000009 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 6001000 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 6001001 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 6001002 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 6001003 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 6001004 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 6001005 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 6001006 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 6001007 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 6002000 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 6002001 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 7000000 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 7000001 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 7000002 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 7000003 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 7000004 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 7000005 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 7000006 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 7000007 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 7000008 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 7001000 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 7001001 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 7001002 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 7001003 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 7001004 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 7001005 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 7001006 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 7001007 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 7002000 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 7002001 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 7002002 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 8000000 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 8000001 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 8000002 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 8000003 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 8000004 from the platform
+Taxi driver 5 arrives
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 8000005 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 8000006 from the platform
+Taxi driver 8 arrives
+Taxi driver 2 arrives
+Taxi driver 5 picked up client 8000007 from the platform
+Taxi driver 8 picked up client 8001000 from the platform
+Taxi driver 2 picked up client 8001001 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 8001002 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 8001003 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 8001004 from the platform
+Taxi driver 3 arrives
+Taxi driver 3 picked up client 8001005 from the platform
+Taxi driver 0 arrives
+Taxi driver 0 picked up client 8001006 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 8001007 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 8001008 from the platform
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 2 arrives
+Taxi driver 5 picked up client 8001009 from the platform
+Taxi driver 8 picked up client 8002000 from the platform
+Taxi driver 2 picked up client 8002001 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 8004000 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 8004001 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 8004002 from the platform
+Taxi driver 3 arrives
+Taxi driver 0 arrives
+Taxi driver 3 picked up client 9000000 from the platform
+Taxi driver 0 picked up client 9000001 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 9000002 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 9000003 from the platform
+Taxi driver 5 arrives
+Taxi driver 8 arrives
+Taxi driver 2 arrives
+Taxi driver 8 picked up client 9000004 from the platform
+Taxi driver 5 picked up client 9000005 from the platform
+Taxi driver 2 picked up client 9000006 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 9001000 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 9001001 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 9001002 from the platform
+Taxi driver 3 arrives
+Taxi driver 0 arrives
+Taxi driver 3 picked up client 9001003 from the platform
+Taxi driver 0 picked up client 9001004 from the platform
+Taxi driver 1 arrives
+Taxi driver 1 picked up client 9001005 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 9001006 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 9001007 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 9001008 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 9002000 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 9004000 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 9004001 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 0000000 from the platform
+Taxi driver 0 arrives
+Taxi driver 3 arrives
+Taxi driver 1 arrives
+Taxi driver 0 picked up client 0000001 from the platform
+Taxi driver 3 picked up client 0000002 from the platform
+Taxi driver 1 picked up client 0000003 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 0000004 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 0001000 from the platform
+Taxi driver 2 arrives
+Taxi driver 5 arrives
+Taxi driver 2 picked up client 0001001 from the platform
+Taxi driver 5 picked up client 0001002 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 0001003 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 0001004 from the platform
+Taxi driver 6 arrives
+Taxi driver 6 picked up client 0001005 from the platform
+Taxi driver 0 arrives
+Taxi driver 3 arrives
+Taxi driver 1 arrives
+Taxi driver 0 picked up client 0001006 from the platform
+Taxi driver 3 picked up client 0001007 from the platform
+Taxi driver 1 picked up client 0001008 from the platform
+Taxi driver 7 arrives
+Taxi driver 7 picked up client 0001009 from the platform
+Taxi driver 2 arrives
+Taxi driver 2 picked up client 0002000 from the platform
+Taxi driver 5 arrives
+Taxi driver 5 picked up client 0002001 from the platform
+Taxi driver 8 arrives
+Taxi driver 8 picked up client 0002002 from the platform
+Taxi driver 4 arrives
+Taxi driver 4 picked up client 0004000 from the platform
+Taxi driver 9 arrives
+Taxi driver 9 picked up client 0004001 from the platform
+Taxi driver 6 arrives
+Taxi driver 0 arrives
+Taxi driver 0 waits for passengers to enter the platform
+Taxi driver 1 arrives
+Taxi driver 1 waits for passengers to enter the platform
+Taxi driver 7 arrives
+Taxi driver 7 waits for passengers to enter the platform
+Taxi driver 6 waits for passengers to enter the platform
+Taxi driver 3 arrives
+Taxi driver 3 waits for passengers to enter the platform
+Taxi driver 2 arrives
+Taxi driver 2 waits for passengers to enter the platform
+Taxi driver 5 arrives
+Taxi driver 5 waits for passengers to enter the platform
+Taxi driver 8 arrives
+Taxi driver 8 waits for passengers to enter the platform
+Taxi driver 4 arrives
+Taxi driver 4 waits for passengers to enter the platform
+Taxi driver 9 arrives
+Taxi driver 9 waits for passengers to enter the platform
+Taxi driver 0 leaves (no more planes)
+Taxi driver 3 leaves (no more planes)
+Taxi driver 6 leaves (no more planes)
+Taxi driver 7 leaves (no more planes)
+Taxi driver 1 leaves (no more planes)
+Taxi driver 5 leaves (no more planes)
+Taxi driver 2 leaves (no more planes)
+Taxi driver 8 leaves (no more planes)
+Taxi driver 4 leaves (no more planes)
+Taxi driver 9 leaves (no more planes)

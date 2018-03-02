@@ -19,9 +19,10 @@
 #include <unistd.h>
 #include <limits.h>
 #include <semaphore.h>
+#include <sys/time.h>
 
 #define BUFFER_SIZE 100
-#define TIME_LIMIT 10.0
+#define TIME_LIMIT 10
 
 /**
  * The structure for our semaphore
@@ -77,7 +78,7 @@ int getPassengerId(int airplane_id, int passenger_id, int time_id) {
 void *FnAirplane(void *arg)
 {
     // set the time initially to first hour
-    float t = 1.0;
+    int t = 1;
     // have planes continuously arriving every hour until the time limit
     while(t <= TIME_LIMIT) {
         // airplane id
@@ -85,11 +86,12 @@ void *FnAirplane(void *arg)
         // random number of passengers from 5-10
         int passengers = rand() % 6 + 5;
 
+        // lock the shared resource
+        pthread_mutex_lock(&shared.mutex);
+
         airplane_id = (intptr_t)arg;
         printf("Airplane %d arrives with %d passengers \n", airplane_id, passengers );
 
-        // lock the shared resource
-        pthread_mutex_lock(&shared.mutex);
         for (int i=0; i<passengers; i++) {
             int open_slots;
             sem_getvalue(&shared.empty, &open_slots); // find number of open slots in the queue
@@ -103,7 +105,7 @@ void *FnAirplane(void *arg)
                 sem_wait(&shared.empty);
                 int time_id = t == 10 ? 0: t;
                 int passenger_id = getPassengerId(airplane_id, i, time_id);
-                printf("Passenger %d of airplane %d arrives to platform \n", passenger_id, airplane_id);
+                printf("Passenger %07d of airplane %d arrives to platform \n", passenger_id, airplane_id);
                 // add passenger to end of queue and iterate the tail to next slot in buffer
                 shared.buf[shared.in] = passenger_id;
                 shared.in = (shared.in+1)%BUFFER_SIZE;
@@ -116,7 +118,6 @@ void *FnAirplane(void *arg)
         pthread_mutex_unlock(&shared.mutex);
         // sleep for one second (one hour)
         usleep(1000*1000);
-        // iterate the time to next hour
         t++;
     }
     return NULL;
@@ -130,29 +131,42 @@ void *FnAirplane(void *arg)
  */
 void *FnTaxi(void *arg)
 {
-    // store the taxi id
-    int taxi_id;
-    // variable to keep track of time
-    float t = 1.0;
+    // store the taxi id and passenger id
+    int taxi_id, passenger;
 
-    // taxi continues in a loop while time has not reached its limit
-    while (t <= TIME_LIMIT) {
+    // taxi continues in a loop until no more planes are planning to arrive
+    while (1) {
         taxi_id = (intptr_t)arg;
         printf("Taxi driver %d arrives\n", taxi_id);
-        // determine how many full slots are in the queue
-        int full_slots;
+
+        // check if there is anyone in the queue
+        int full_slots, iterator = 0;
         sem_getvalue(&shared.full, &full_slots);
-        // if the queue is empty, taxi driver waits for passengers
+        // if the queue is empty, taxi driver repeatedly checks for passengers until someone shows up or timeout
         if (full_slots == 0) {
             printf("Taxi driver %d waits for passengers to enter the platform\n", taxi_id);
+            while (iterator < 100*TIME_LIMIT) {
+                sem_getvalue(&shared.full, &full_slots);
+                if (full_slots == 0) {
+                    // sleep for 10 ms
+                    iterator++;
+                    usleep(10*1000);
+                } else {
+                    iterator = TIME_LIMIT*10000;
+                }
+            }
         }
-        // wait until there is a passenger
+        if (iterator == 100*TIME_LIMIT) {
+            printf("Taxi driver %d leaves (no more planes)\n", taxi_id);
+            break;
+        }
         sem_wait(&shared.full);
         // lock shared resource
         pthread_mutex_lock(&shared.mutex);
-        int passenger = shared.buf[shared.out];
+        // take the next passenger off the queue
+        passenger = shared.buf[shared.out];
         // take passenger off queue and next full slot in buffer becomes front of queue
-        printf("Taxi driver %d picked up client %d from the platform\n", taxi_id, passenger);
+        printf("Taxi driver %d picked up client %07d from the platform\n", taxi_id, passenger);
         shared.out = (shared.out+1)%BUFFER_SIZE;
         fflush(stdout);
         // decrement the number of empty slots
@@ -163,7 +177,6 @@ void *FnTaxi(void *arg)
         int time_delay = rand() % 11 + 30;
         float fractional_time = time_delay / 60.0;
         usleep(0.5*1000*1000);
-        t += fractional_time;
     }
     return NULL;
 }
@@ -178,8 +191,8 @@ int main(int argc, char *argv[])
 
     // write the output to a text file
     char file_name[256];
-    sprintf(file_name,"%dairplanes_%dtaxis.txt",num_airplanes,num_taxis);
-    printf("Printing output to %s \n", file_name);
+    sprintf(file_name,"%d_airplanes_%d_taxis.txt",num_airplanes,num_taxis);
+    printf("Simulating taxi usage... \nOutput can be found in %s file once finished. \n", file_name);
     close(1);
     fopen(file_name, "w");
 
@@ -208,10 +221,8 @@ int main(int argc, char *argv[])
     {
         pthread_create(&taxi_thread, NULL, FnTaxi, (void*)(intptr_t)i);
     }
-    // exit the thread
-    pthread_join(airplane_thread,NULL);
-    pthread_join(taxi_thread,NULL);
-    printf("Hello");
+
+    // exit thread
     pthread_exit(NULL);
     exit(1);
 }
