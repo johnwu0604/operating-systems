@@ -5,11 +5,11 @@
 #define HIGH 199
 #define START 53
 
-//compare function for qsort
-//you might have to sort the request array
-//use the qsort function
+// compare function for qsort
+// you might have to sort the request array
+// use the qsort function
 // an argument to qsort function is a function that compares 2 quantities
-//use this there.
+// use this there.
 int cmpfunc (const void * a, const void * b) {
     return ( *(int*)a - *(int*)b );
 }
@@ -126,9 +126,9 @@ void accessSCAN(int *request, int numRequest)
     // array to store final request processing order
     int *finalOrder = malloc((numRequest+1) * sizeof(int));
     // assume head is moving in the increasing direction initially
-    int start = 0;
-    int current = 0;
-    int index = 0;
+    int start = 0; // keep track of starting position
+    int current = 0; // keep track of current position
+    int index = 0; // keep track of next index in final order
     // find start index
     while (request[start] < START && start < numRequest) {
         start++;
@@ -140,7 +140,7 @@ void accessSCAN(int *request, int numRequest)
         index++;
         current++;
     }
-    // go back to start and move in opposite direction
+    // go back to start and move in opposite direction if there are values left on that side
     current = start-1;
     printf("\n----------------\n");
     printf("SCAN :");
@@ -167,12 +167,15 @@ void accessCSCAN(int *request, int numRequest)
     qsort(request, numRequest, sizeof(int), cmpfunc);
     // array to store final request processing order
     int *finalOrder = malloc((numRequest+2) * sizeof(int));
+    // keep track of current head position
     int current = 0;
+    // keep track of next index in final order
     int index = 0;
     // find start index
     while (request[current] < START && current < numRequest) {
         current++;
     }
+    // move in increasing direction
     while (current < numRequest) {
         finalOrder[index] = request[current];
         index++;
@@ -180,6 +183,7 @@ void accessCSCAN(int *request, int numRequest)
     }
     printf("\n----------------\n");
     printf("CSCAN :");
+    // move to start and continue increasing direction if there are more values left
     if (index == numRequest) {
         printSeqNPerformance(finalOrder, numRequest);
     } else {
@@ -207,9 +211,9 @@ void accessLOOK(int *request, int numRequest)
     // array to store final request processing order
     int *finalOrder = malloc((numRequest+1) * sizeof(int));
     // assume head is moving in the increasing direction initially
-    int start = 0;
-    int current = 0;
-    int index = 0;
+    int start = 0; // keep track of start position
+    int current = 0; // keep track of current position
+    int index = 0; // keep track of next index in final order
     // find start index
     while (request[start] < START && start < numRequest) {
         start++;
@@ -230,7 +234,7 @@ void accessLOOK(int *request, int numRequest)
     }
 
     printf("\n----------------\n");
-    printf("SCAN :");
+    printf("LOOK :");
     printSeqNPerformance(finalOrder, numRequest);
     printf("----------------\n");
     return;
@@ -243,12 +247,15 @@ void accessCLOOK(int *request, int numRequest)
     qsort(request, numRequest, sizeof(int), cmpfunc);
     // array to store final request processing order
     int *finalOrder = malloc((numRequest+1) * sizeof(int));
+    // keep track of current position
     int current = 0;
+    // keep track of next index in final order
     int index = 0;
     // find start index
     while (request[current] < START && current < numRequest) {
         current++;
     }
+    // move in increasing direction
     while (current < numRequest) {
         finalOrder[index] = request[current];
         index++;
@@ -256,6 +263,7 @@ void accessCLOOK(int *request, int numRequest)
     }
     printf("\n----------------\n");
     printf("CLOOK :");
+    // move head to beginning and continue in increasing direction if more requests still exist
     if (index == numRequest) {
         printSeqNPerformance(finalOrder, numRequest);
     } else {
