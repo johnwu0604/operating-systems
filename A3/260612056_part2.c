@@ -79,7 +79,7 @@ void accessSSTF(int *request, int numRequest)
     // compare left and right pointers to see which one is closer
     // assign the closer location to the final request
     // keep iterating pointers outward until the boundary indices
-    while (left<right && left >= 0 && right <= numRequest-1) {
+    while (left<right && left >= 0 && right <= numRequest-1) {////access the disk location in SCAN
         int leftDistance = current - request[left];
         int rightDistance = request[right] - current;
         if (leftDistance < rightDistance) {
@@ -117,50 +117,161 @@ void accessSSTF(int *request, int numRequest)
     return;
 }
 
-////access the disk location in SCAN
-//void accessSCAN(int *request, int numRequest)
-//{
-//
-//    //write your logic here
-//    printf("\n----------------\n");
-//    printf("SCAN :");
-//    printSeqNPerformance(newRequest, newCnt);
-//    printf("----------------\n");
-//    return;
-//}
-//
-////access the disk location in CSCAN
-//void accessCSCAN(int *request, int numRequest)
-//{
-//    //write your logic here
-//    printf("\n----------------\n");
-//    printf("CSCAN :");
-//    printSeqNPerformance(newRequest, newCnt);
-//    printf("----------------\n");
-//    return;
-//}
-//
-////access the disk location in LOOK
-//void accessLOOK(int *request, int numRequest)
-//{
-//    //write your logic here
-//    printf("\n----------------\n");
-//    printf("LOOK :");
-//    printSeqNPerformance(newRequest, newCnt);
-//    printf("----------------\n");
-//    return;printf
-//}
-//
-////access the disk location in CLOOK
-//void accessCLOOK(int *request, int numRequest)
-//{
-//    //write your logic here
-//    printf("\n----------------\n");
-//    printf("CLOOK :");
-//    printSeqNPerformance(newRequest,newCnt);
-//    printf("----------------\n");
-//    return;
-//}
+//access the disk location in SCAN
+void accessSCAN(int *request, int numRequest)
+{
+
+    // sort requests using quicksort
+    qsort(request, numRequest, sizeof(int), cmpfunc);
+    // array to store final request processing order
+    int *finalOrder = malloc((numRequest+1) * sizeof(int));
+    // assume head is moving in the increasing direction initially
+    int start = 0;
+    int current = 0;
+    int index = 0;
+    // find start index
+    while (request[start] < START && start < numRequest) {
+        start++;
+    }
+    current = start;
+    // move in increasing direction
+    while (current < numRequest) {
+        finalOrder[index] = request[current];
+        index++;
+        current++;
+    }
+    // go back to start and move in opposite direction
+    current = start-1;
+    printf("\n----------------\n");
+    printf("SCAN :");
+    if (current >= 0) {
+        finalOrder[index] = HIGH;
+        index++;
+        while (current >= 0) {
+            finalOrder[index] = request[current];
+            index++;
+            current--;
+        }
+        printSeqNPerformance(finalOrder, numRequest+1);
+    } else {
+        printSeqNPerformance(finalOrder, numRequest);
+    }
+    printf("----------------\n");
+    return;
+}
+
+//access the disk location in CSCAN
+void accessCSCAN(int *request, int numRequest)
+{
+    // sort requests using quicksort
+    qsort(request, numRequest, sizeof(int), cmpfunc);
+    // array to store final request processing order
+    int *finalOrder = malloc((numRequest+2) * sizeof(int));
+    int current = 0;
+    int index = 0;
+    // find start index
+    while (request[current] < START && current < numRequest) {
+        current++;
+    }
+    while (current < numRequest) {
+        finalOrder[index] = request[current];
+        index++;
+        current++;
+    }
+    printf("\n----------------\n");
+    printf("CSCAN :");
+    if (index == numRequest) {
+        printSeqNPerformance(finalOrder, numRequest);
+    } else {
+        finalOrder[index] = HIGH;
+        index++;
+        finalOrder[index] = LOW;
+        index++;
+        current = 0;
+        while (index <= numRequest+1) {
+            finalOrder[index] = request[current];
+            index++;
+            current++;
+        }
+        printSeqNPerformance(finalOrder, numRequest+2);
+    }
+    printf("----------------\n");
+    return;
+}
+
+//access the disk location in LOOK
+void accessLOOK(int *request, int numRequest)
+{
+    // sort requests using quicksort
+    qsort(request, numRequest, sizeof(int), cmpfunc);
+    // array to store final request processing order
+    int *finalOrder = malloc((numRequest+1) * sizeof(int));
+    // assume head is moving in the increasing direction initially
+    int start = 0;
+    int current = 0;
+    int index = 0;
+    // find start index
+    while (request[start] < START && start < numRequest) {
+        start++;
+    }
+    current = start;
+    // move in increasing direction
+    while (current < numRequest) {
+        finalOrder[index] = request[current];
+        index++;
+        current++;
+    }
+    // go back to start and move in opposite direction
+    current = start-1;
+    while (current >= LOW) {
+        finalOrder[index] = request[current];
+        index++;
+        current--;
+    }
+
+    printf("\n----------------\n");
+    printf("SCAN :");
+    printSeqNPerformance(finalOrder, numRequest);
+    printf("----------------\n");
+    return;
+}
+
+//access the disk location in CLOOK
+void accessCLOOK(int *request, int numRequest)
+{
+    // sort requests using quicksort
+    qsort(request, numRequest, sizeof(int), cmpfunc);
+    // array to store final request processing order
+    int *finalOrder = malloc((numRequest+1) * sizeof(int));
+    int current = 0;
+    int index = 0;
+    // find start index
+    while (request[current] < START && current < numRequest) {
+        current++;
+    }
+    while (current < numRequest) {
+        finalOrder[index] = request[current];
+        index++;
+        current++;
+    }
+    printf("\n----------------\n");
+    printf("CLOOK :");
+    if (index == numRequest) {
+        printSeqNPerformance(finalOrder, numRequest);
+    } else {
+        finalOrder[index] = LOW;
+        index++;
+        current = 0;
+        while (index <= numRequest) {
+            finalOrder[index] = request[current];
+            index++;
+            current++;
+        }
+        printSeqNPerformance(finalOrder, numRequest+1);
+    }
+    printf("----------------\n");
+    return;
+}
 
 int main()
 {
@@ -198,21 +309,21 @@ int main()
         case 2: accessSSTF(request, numRequest);
             break;
 
-//            //access the disk location in SCAN
-//        case 3: accessSCAN(request, numRequest);
-//            break;
-//
-//            //access the disk location in CSCAN
-//        case 4: accessCSCAN(request,numRequest);
-//            break;
-//
-//            //access the disk location in LOOK
-//        case 5: accessLOOK(request,numRequest);
-//            break;
-//
-//            //access the disk location in CLOOK
-//        case 6: accessCLOOK(request,numRequest);
-//            break;
+            //access the disk location in SCAN
+        case 3: accessSCAN(request, numRequest);
+            break;
+
+            //access the disk location in CSCAN
+        case 4: accessCSCAN(request,numRequest);
+            break;
+
+            //access the disk location in LOOK
+        case 5: accessLOOK(request,numRequest);
+            break;
+
+            //access the disk location in CLOOK
+        case 6: accessCLOOK(request,numRequest);
+            break;
 
         default:
             break;
