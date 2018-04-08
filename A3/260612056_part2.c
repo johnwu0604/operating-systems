@@ -133,24 +133,24 @@ void accessSCAN(int *request, int numRequest)
     while (request[start] < START && start < numRequest) {
         start++;
     }
-    current = start;
-    // move in increasing direction
-    while (current < numRequest) {
+    current = start-1;
+    // move in decreasing direction
+    while (current >= 0) {
         finalOrder[index] = request[current];
         index++;
-        current++;
+        current--;
     }
     // go back to start and move in opposite direction if there are values left on that side
-    current = start-1;
+    current = start;
     printf("\n----------------\n");
     printf("SCAN :");
-    if (current >= 0) {
-        finalOrder[index] = HIGH;
+    if (current < numRequest) {
+        finalOrder[index] = LOW;
         index++;
-        while (current >= 0) {
+        while (current < numRequest) {
             finalOrder[index] = request[current];
             index++;
-            current--;
+            current++;
         }
         printSeqNPerformance(finalOrder, numRequest+1);
     } else {
