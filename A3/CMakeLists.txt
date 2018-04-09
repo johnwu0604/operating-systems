@@ -7,3 +7,4 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")
 
 add_executable(Q2 260612056_part2.c)
 add_executable(Q3A resource_request_simulator.c)
+add_executable(Q3B faulty_resource_request_simulator.c)
