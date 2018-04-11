@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-// semphore for mutual exclusion
+// binary semaphore for mutual exclusion
 sem_t mutex;
 
 // variables for bankers algorithms
@@ -221,14 +221,17 @@ void *processSimulation(void *arg) {
         printRequest(request, id);
         bool success = processRequest(request, id);
         sem_post(&mutex);
-        // if request was successful, sleep for 3 seconds. Otherwise try again in a second.
-        if (success) {
-            printf("Request successful! \n");
-            sleep(3);
-        } else {
+        // if request failed, keep trying until it succeeds
+        while (!success) {
             printf("Request failed. \n");
-            sleep(1);
+            sleep(1); // sleep for 1 second before trying again
+            sem_wait(&mutex);
+            printRequest(request, id);
+            success = processRequest(request, id);
+            sem_post(&mutex);
         }
+        printf("Request successful! \n");
+        sleep(3);
     }
     freeResources(id);
     return NULL;
@@ -275,16 +278,19 @@ void *faultyThread(void *arg) {
     printf("Creating faulty thread ...\n");
     while(true) {
         sleep(10);
+        if (allProcessesFinished()) {
+            printf("All processes finished! Faulty thread exiting.\n");
+            break;
+        }
         sem_wait(&mutex);
         int resource = rand() % num_resource;
         if (rand() % 2 == 1) {
             avail[resource]--;
             printf("Faulty thread occurred on resource %d\n", resource);
+        } else {
+            printf("No faulty thread occurred!\n");
         }
         sem_post(&mutex);
-        if (allProcessesFinished()) {
-            break;
-        }
     }
 }
 
@@ -298,6 +304,10 @@ void *deadlockDetectionThread(void *arg) {
     printf("Creating deadlock detection thread ...\n");
     while(true) {
         sleep(10);
+        if (allProcessesFinished()) {
+            printf("All processes finished! Deadlock detection thread exiting.\n");
+            break;
+        }
         sem_wait(&mutex);
         bool deadlock = true;
         for (int i=0; i<num_process; i++) {
@@ -316,14 +326,12 @@ void *deadlockDetectionThread(void *arg) {
         // deadlock detected
         if (deadlock) {
             printf("Deadlock will occur as processes request more resources, exiting...\n");
+            sleep(1);
             exit(0);
         } else {
             printf("No deadlock detected!\n");
         }
         sem_post(&mutex);
-        if (allProcessesFinished()) {
-            break;
-        }
     }
 }
 
@@ -353,9 +361,18 @@ int main() {
     // Grab user inputs for maximum number of each resource that can be claimed by each process
     for (int i=0; i<num_process; i++) {
         for (int j=0; j<num_resource; j++) {
-            printf("Enter the maximum number of resource %d that can be claimed by process %d: ", j, i);
             int n;
+            printf("Enter the maximum number of resource %d that can be claimed by process %d: ", j, i);
             scanf("%d", &n);
+            bool valid_num = false;
+            while (!valid_num) {
+                if (n > avail[j]) {
+                    printf("This exceeds the maximum available number of resource %d. Please enter a new number: ", j);
+                    scanf("%d", &n);
+                } else {
+                    valid_num = true;
+                }
+            }
             max[i*num_resource + j] = n;
             need[i*num_resource + j] = n;
         }
